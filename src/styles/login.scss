@@ -1,0 +1,73 @@
+@mixin mb {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(120deg, #fe7c5a, #fcd100);
+}
+.login-wrp {
+  position: relative;
+  width: 400px;
+  max-width: 800px;
+  padding: 2em 3em;
+  margin: 100px auto 3em;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 1em;
+  backdrop-filter: saturate(100%) blur(20px);
+  @include mb {
+    width: 85%;
+    padding: 1em;
+    margin: 80px auto 3em;
+  }
+  h2 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 1.5;
+  }
+  input {
+    display: block;
+    width: 90%;
+    height: 40px;
+    margin: 10px auto;
+    padding: 0.5em;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    &:focus {
+      outline: 2px solid #000;
+    }
+  }
+  button {
+    display: block;
+    width: 33.3%;
+    height: 40px;
+    margin: 10px auto;
+    font-size: 18px;
+    border: none;
+    color: #fff;
+    background-color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  a {
+    color: #000;
+    display: block;
+    text-align: center;
+  }
+  .login-notice {
+    margin: 0 auto;
+    padding: 5px 10px;
+    width: fit-content;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 20px;
+    border: 1px solid #000;
+  }
+}
