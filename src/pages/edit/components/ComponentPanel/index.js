@@ -4,8 +4,8 @@ import { Button } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectComponent, cleanEmpty } from '@/src/actions/componentList';
-import { setComponentPanelVisible } from '@/src/actions/componentPanel';
+import { selectComponent, cleanEmpty } from '@/actions/componentList';
+import { setComponentPanelVisible } from '@/actions/componentPanel';
 import { componentList } from '@/component-list/componentList';
 
 const Panel = styled.div`

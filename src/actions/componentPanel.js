@@ -1,6 +1,6 @@
 import { createActions } from 'redux-actions';
 
-const { componentPanel } = createAction({
+const { componentPanel } = createActions({
   'COMPONENT_PANEL/SET_COMPONENT_PANEL_VISIBLE': (visible) => visible,
 });
 

@@ -1,31 +1,36 @@
-import React, { useEffect, useState, useRef } from 'react'
-import BraftEditor from 'braft-editor'
-import styled from 'styled-components'
-import 'braft-editor/dist/index.css'
+import React, { useEffect, useState, useRef } from 'react';
+// import BraftEditor from 'braft-editor'
+import styled from 'styled-components';
+// import 'braft-editor/dist/index.css'
 
-
-const Container = styled.div`
-
-`
+const Container = styled.div``;
 
 function RichEdit({ html, onChange, height = '200px' }) {
-
-  const [editorState, setEditorState] = useState(null)
+  const [editorState, setEditorState] = useState(null);
   const controls = useRef([
-    'bold', 'italic', 'underline', 'line-height', 'link', 'text-color', 'font-size', 'text-align', 'media'
-  ])
+    'bold',
+    'italic',
+    'underline',
+    'line-height',
+    'link',
+    'text-color',
+    'font-size',
+    'text-align',
+    'media',
+  ]);
 
   useEffect(() => {
-    setEditorState(BraftEditor.createEditorState(html))
-  }, [html])
+    //setEditorState(BraftEditor.createEditorState(html))
+    setEditorState(html);
+  }, [html]);
 
   const changeValue = (editorState) => {
-    setEditorState(editorState)
-    onChange(editorState.toHTML())
-  }
+    setEditorState(editorState);
+    onChange(editorState.toHTML());
+  };
 
   return (
-    <Container >
+    <Container>
       <BraftEditor
         value={editorState}
         onChange={changeValue}
@@ -33,8 +38,7 @@ function RichEdit({ html, onChange, height = '200px' }) {
         contentStyle={{ height: '200px' }}
       />
     </Container>
-  )
-
+  );
 }
 
-export default RichEdit
+export default RichEdit;

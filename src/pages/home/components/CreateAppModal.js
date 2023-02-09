@@ -30,9 +30,6 @@ function CreateAppModal({ visible, closeModal, addApp }) {
   };
 
   const submit = () => {
-    if (!formData.name) {
-      return message.info('应用名称不得为空');
-    }
     const appId = addApp({
       name: formData.name,
       desc: formData.desc,

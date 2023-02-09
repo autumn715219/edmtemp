@@ -1,15 +1,15 @@
-import { handleActions } from 'redux-actions'
-import { setComponentPanelVisible } from '@/client/actions/componentPanel'
+import { handleActions } from 'redux-actions';
+import { setComponentPanelVisible } from '@/actions/componentPanel';
 
-const initialState = false
+const initialState = false;
 
 const componentPanelReducer = handleActions(
   {
     [setComponentPanelVisible]: (state, action) => {
-      return action.payload
-    }
+      return action.payload;
+    },
   },
-  initialState
-)
+  initialState,
+);
 
-export default componentPanelReducer
+export default componentPanelReducer;

@@ -1,18 +1,21 @@
-import { handleActions } from 'redux-actions'
-import { setCurrentSelectComponent, clearCurrentSelectComponent } from '@/client/actions/currentSelectComponent'
+import { handleActions } from 'redux-actions';
+import {
+  setCurrentSelectComponent,
+  clearCurrentSelectComponent,
+} from '@/actions/currentSelectComponent';
 
-const initialState = null
+const initialState = null;
 
 const currentSelectComponentReducer = handleActions(
   {
     [setCurrentSelectComponent]: (state, action) => {
-      return action.payload
+      return action.payload;
     },
     [clearCurrentSelectComponent]: () => {
-      return null
-    }
+      return null;
+    },
   },
-  initialState
-)
+  initialState,
+);
 
-export default currentSelectComponentReducer
+export default currentSelectComponentReducer;

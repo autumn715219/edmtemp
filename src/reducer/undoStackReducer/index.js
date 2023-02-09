@@ -1,21 +1,21 @@
-import { handleActions } from 'redux-actions'
-import { clearUndoStack, setUndoStack, initUndoStack } from '@/client/actions/undoStack'
+import { handleActions } from 'redux-actions';
+import { clearUndoStack, setUndoStack, initUndoStack } from '@/actions/undoStack';
 
-const initialState = []
+const initialState = [];
 
 const undoStackReducer = handleActions(
   {
     [setUndoStack]: (state, action) => {
-      return action.payload
+      return action.payload;
     },
     [initUndoStack]: (state, action) => {
-      return action.payload
+      return action.payload;
     },
     [clearUndoStack]: () => {
-      return []
-    }
+      return [];
+    },
   },
-  initialState
-)
+  initialState,
+);
 
-export default undoStackReducer
+export default undoStackReducer;

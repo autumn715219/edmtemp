@@ -1,18 +1,18 @@
-import { handleActions } from 'redux-actions'
-import { setCurrentSelectPage, clearCurrentSelectPage } from '@/client/actions/currentSelectPage'
+import { handleActions } from 'redux-actions';
+import { setCurrentSelectPage, clearCurrentSelectPage } from '@/actions/currentSelectPage';
 
-const initialState = null
+const initialState = null;
 
 const currentSelectPageReducer = handleActions(
   {
     [setCurrentSelectPage]: (state, action) => {
-      return action.payload
+      return action.payload;
     },
     [clearCurrentSelectPage]: () => {
-      return null
-    }
+      return null;
+    },
   },
-  initialState
-)
+  initialState,
+);
 
-export default currentSelectPageReducer
+export default currentSelectPageReducer;

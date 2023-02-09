@@ -1,16 +1,16 @@
-import { handleActions } from 'redux-actions'
-import { setCurrentStep, clearCurrentStep } from '@/client/actions/currentUndoStep'
+import { handleActions } from 'redux-actions';
+import { setCurrentStep, clearCurrentStep } from '@/actions/currentUndoStep';
 
-const initialState = null
+const initialState = null;
 
 const currentUndoStep = handleActions(
   {
     [setCurrentStep]: (state, action) => {
-      return action.payload
+      return action.payload;
     },
-    [clearCurrentStep]: () => null
+    [clearCurrentStep]: () => null,
   },
-  initialState
-)
+  initialState,
+);
 
-export default currentUndoStep
+export default currentUndoStep;

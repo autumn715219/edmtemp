@@ -1,18 +1,18 @@
-import { handleActions } from 'redux-actions'
-import { setPageList, clearPageList } from '@/client/actions/pageList'
+import { handleActions } from 'redux-actions';
+import { setPageList, clearPageList } from '@/actions/pageList';
 
-const initialState = []
+const initialState = [];
 
 const pageListReducer = handleActions(
   {
     [setPageList]: (state, action) => {
-      return action.payload
+      return action.payload;
     },
     [clearPageList]: () => {
-      return []
-    }
+      return [];
+    },
   },
-  initialState
-)
+  initialState,
+);
 
-export default pageListReducer
+export default pageListReducer;
