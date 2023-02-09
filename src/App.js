@@ -1,25 +1,54 @@
-import './App.scss';
-import React from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import reducers from './reducer';
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
+import styled from 'styled-components';
 
-import Landing from './pages/Landing';
-import Login from './pages/Login';
-import Editor from './pages/Editor';
-import Dashboard from './pages/Dashboard';
+const Home = lazy(() => import('./pages/home/index'));
+const Edit = lazy(() => import('./pages/edit/index'));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-function App() {
-  return (
-    <div className='app'>
-      <Router>
-        <Routes>
-          <Route path='/' element={<Landing />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/editor' element={<Editor />} />
-          <Route path='/dashboard' element={<Dashboard />} />
-        </Routes>
-      </Router>
-    </div>
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
+
+const Loading = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+function WaitingComponent(Component) {
+  return () => (
+    <Suspense fallback={<Loading>加载中...</Loading>}>
+      <Component />
+    </Suspense>
   );
+}
+
+class App extends React.Component {
+  componentDidCatch(err) {
+    console.log(err);
+  }
+
+  render() {
+    return (
+      <Provider store={store}>
+        <ConfigProvider locale={zhCN}>
+          <Router basename='/page-builder'>
+            <Routes>
+              <Route exact path='/home' component={WaitingComponent(Home)} />
+              <Route exact path='/edit' component={WaitingComponent(Edit)} />
+            </Routes>
+          </Router>
+        </ConfigProvider>
+      </Provider>
+    );
+  }
 }
 
 export default App;
