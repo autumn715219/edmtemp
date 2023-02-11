@@ -44,7 +44,7 @@ function Tool() {
       <Form>
         <Form.Item label='内容'>
           <TextArea
-            placeholder='输入文本内容'
+            placeholder='輸入文案內容'
             rows={5}
             onChange={(e) => setContent(e.target.value)}
             value={content}
@@ -53,10 +53,10 @@ function Tool() {
         <PositionMove component={currentSelectComponent} componentList={componentList} />
         <Form.Item style={{ marginTop: '40px' }}>
           <Button type='primary' onClick={submit}>
-            确认
+            儲存
           </Button>
-          <Button type='danger' style={{ marginLeft: '20px' }} onClick={deleteCurrentComponent}>
-            删除
+          <Button style={{ marginLeft: '10px' }} onClick={deleteCurrentComponent}>
+            刪除
           </Button>
         </Form.Item>
       </Form>

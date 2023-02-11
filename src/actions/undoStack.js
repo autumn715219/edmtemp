@@ -80,14 +80,13 @@ const undo = () => (dispatch, getState) => {
 
   if (index > 0) {
     const prevStep = undoStack[index - 1];
-
     const prevPageInfo = JSON.parse(sessionStorage[prevStep]);
     dispatch(setPageList(prevPageInfo.pageList));
     dispatch(setCurrentSelectPage(prevPageInfo.currentSelectPage));
     dispatch(setCurrentSelectComponent(prevPageInfo.currentSelectComponent));
     dispatch(setCurrentStep(prevStep));
   } else {
-    message.info('已在頁首');
+    message.info('無法再復原了');
   }
 };
 
@@ -105,7 +104,7 @@ const redo = () => (dispatch, getState) => {
     dispatch(setCurrentSelectComponent(nextPageInfo.currentSelectComponent));
     dispatch(setCurrentStep(nextStep));
   } else {
-    message.info('已在最後');
+    message.info('已是最後一步');
   }
 };
 

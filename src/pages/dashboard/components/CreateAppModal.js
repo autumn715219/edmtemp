@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Form, Input, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -13,6 +13,13 @@ function CreateAppModal({ visible, closeModal, addApp }) {
     name: '',
     desc: '',
   });
+
+  useEffect(() => {
+    setFormData({
+      name: 'EDM名稱',
+      desc: '全站享88折',
+    });
+  }, [setFormData]);
 
   const changeValue = (label) => (e) => {
     setFormData({
@@ -39,7 +46,7 @@ function CreateAppModal({ visible, closeModal, addApp }) {
 
       setTimeout(() => {
         navigate(`/edit?appId=${appId}`);
-      }, 500);
+      }, 1000);
     }
   };
 
@@ -48,13 +55,13 @@ function CreateAppModal({ visible, closeModal, addApp }) {
   };
 
   return (
-    <Modal visible={visible} onCancel={onCancel} onOk={submit}>
+    <Modal open={visible} onCancel={onCancel} onOk={submit}>
       <Content>
         <Form labelCol={{ span: 4 }}>
-          <Form.Item label='应用名称' required>
+          <Form.Item label='EDM名稱' required>
             <Input value={formData.name} onChange={changeValue('name')} />
           </Form.Item>
-          <Form.Item label='应用描述'>
+          <Form.Item label='EDM描述'>
             <Input value={formData.desc} onChange={changeValue('desc')} />
           </Form.Item>
         </Form>

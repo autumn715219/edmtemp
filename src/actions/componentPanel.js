@@ -5,5 +5,4 @@ const { componentPanel } = createActions({
 });
 
 const { setComponentPanelVisible } = componentPanel;
-
 export { setComponentPanelVisible };

@@ -44,23 +44,23 @@ function Tool() {
   return (
     <ToolContainer>
       <Form>
-        <Form.Item label='标题'>
+        <Form.Item label='標題'>
           <Input
-            placeholder='请输入标题'
+            placeholder='請輸入標題'
             onChange={(e) => setTitle(e.target.value)}
             value={title}
           />
         </Form.Item>
         <Form.Item label='作者'>
           <Input
-            placeholder='请输入作者'
+            placeholder='請輸入作者'
             onChange={(e) => setAuthor(e.target.value)}
             value={author}
           />
         </Form.Item>
         <Form.Item label='日期'>
           <Input
-            placeholder='请输入日期'
+            placeholder='請輸入日期'
             onChange={(e) => setDateStr(e.target.value)}
             value={dateStr}
           />
@@ -76,10 +76,10 @@ function Tool() {
         <PositionMove component={currentSelectComponent} componentList={componentList} />
         <Form.Item style={{ marginTop: '40px' }}>
           <Button type='primary' onClick={submit}>
-            确认
+            儲存
           </Button>
-          <Button type='danger' style={{ marginLeft: '20px' }} onClick={deleteCurrentComponent}>
-            删除
+          <Button style={{ marginLeft: '10px' }} onClick={deleteCurrentComponent}>
+            刪除
           </Button>
         </Form.Item>
       </Form>

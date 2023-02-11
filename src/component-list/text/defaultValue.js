@@ -1,11 +1,25 @@
 const defaultValue = {
   id: 'TEXT_COMPONENT_DEFAULT',
-  name: '默认文本',
-  imgUrl: 'https://gw.alipayobjects.com/os/q/cms/images/jnlhbijy/3e1fe003-aa08-49bc-9199-0d706287ae92.cms/images/eea1430d-9f2e-4159-905f-226a94e1b11a.png?x-oss-process=image/resize,w_560/crop,h_560',
+  name: '文字',
+  imgUrl: 'https://drive.google.com/uc?id=1UVCfEUXOXo2LVAiYWuUnaPo5kaD7rh1V',
   componentType: 'text',
   defaultProps: {
-    content: '这是一段文本'
-  }
-}
+    content: `水城操們結就，月的容度去下我其體！
 
-export default defaultValue
+      紅習過興跟者也流一！然企條代的一級者明年會專念朋機不，不奇以美身。來果過黨老府良期們什還像道？感教道少夫養社；甚港知媽畫師內實一在野就新張高多者？
+      
+      動公沒義大似告術大於人前自公是告的，著過心一使何許效常長力古北得以們獲平女香人；會案看。要都國展千們是後上主新方該亮我聲知具去皮他象放是，海無選這講辦演大治。是無類子毒分們風別。
+      
+      放會者四歡坐。
+      
+      大無不室以以來代……也而童去古還。
+      
+      人質關！是來老也使作會。說體滿心計外中苦語心後是說不務是了然麼一格節如，質如直為重期和石陸，天得主官理果想的物我結她光聽商，們中我案、遠活種力不灣笑文不員……發不民等的義天口告分多；安一飯甚兒器笑只讓得、近經以情任！出多此一他治來：一資我假國高；樣性學操覺人多、子八檢。片國觀交香民人地險出黑只出氣會有遠就著表際動取才甚收流股達；去主。
+      
+      地了作樂。
+      
+      條生不就望；一總省力形生後、不動認公作黃的教國萬色要了是方的北經機家小我驗國。`,
+  },
+};
+
+export default defaultValue;

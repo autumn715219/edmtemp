@@ -1,11 +1,5 @@
-import BlankClient from './client'
-import BlankServer from './server'
-import ToolPanel from './tool'
-import defaultValue from './defaultValue'
+import BlankClient from './client';
+import ToolPanel from './tool';
+import defaultValue from './defaultValue';
 
-export {
-  BlankClient,
-  BlankServer,
-  ToolPanel,
-  defaultValue
-}
+export { BlankClient, ToolPanel, defaultValue };

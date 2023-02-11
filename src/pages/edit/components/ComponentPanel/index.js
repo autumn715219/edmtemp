@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Button } from 'antd';
+import { Button, Card, Meta } from 'antd';
+import * as Icon from '@ant-design/icons';
 import { CloseOutlined } from '@ant-design/icons';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,10 +14,10 @@ const Panel = styled.div`
   left: 0;
   top: 0;
   height: 100%;
-  width: 100%;
+  width: 390px;
 `;
 const PanelContainer = styled.div`
-  width: 400px;
+  width: 100%;
   height: 100%;
   position: relative;
   z-index: 999;
@@ -25,8 +26,13 @@ const PanelContainer = styled.div`
 `;
 const HeaderTitle = styled.div`
   box-sizing: border-box;
-  padding: 15px;
+  padding: 5px 20px;
+  margin-bottom: 10px;
   display: flex;
+  z-index: 10;
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+
   align-items: center;
   justify-content: space-between;
   & > h3 {
@@ -58,7 +64,8 @@ const List = styled.div`
 `;
 
 const TagList = styled.div`
-  width: 90px;
+  width: 110px;
+  white-space: nowrap;
 `;
 
 const TagItem = styled.div`
@@ -71,8 +78,8 @@ const TagItem = styled.div`
   & > div {
     padding: 5px 10px;
     color: ${(props) => (props.isActive ? '#fff' : '#666')};
-    background: ${(props) => (props.isActive ? '#1890ff' : '#fff')};
-    border-radius: 4px;
+    background: ${(props) => (props.isActive ? '#ff7c5a' : '#fff')};
+    border-radius: 6px;
   }
 `;
 
@@ -99,10 +106,13 @@ const ComponentItem = styled.div`
 function ComponentPanel() {
   const dispatch = useDispatch();
   const [selectItem, setSelectItem] = useState(componentList[0]);
-
+  const { Meta } = Card;
   const closePanel = () => {
     dispatch(setComponentPanelVisible(false));
     dispatch(cleanEmpty());
+  };
+  const addIcon = (name) => {
+    return React.createElement(Icon[name]);
   };
 
   const selectTagList = (item) => {
@@ -120,36 +130,44 @@ function ComponentPanel() {
       }),
     );
   };
-  console.log(componentList);
-  console.log(selectItem);
+  // console.log(componentList);
+  // console.log(selectItem);
   return (
     <Panel>
       <PanelContainer>
         <HeaderTitle>
-          <h3>添加组件</h3>
-
-          <span>
+          <h3>加入區塊</h3>
+          {/* <span>
             <CloseOutlined onClick={closePanel} />
-          </span>
+          </span> */}
         </HeaderTitle>
         {/* <Button onClick={addBanner}>添加Banner</Button> */}
         <List>
-          <TagList>
+          <TagList style={{ borderRight: '1px solid #dfdfdf', textAlign: 'center' }}>
             {componentList.map((item) => (
               <TagItem
+                style={{ height: 60 }}
                 onClick={() => selectTagList(item)}
                 isActive={item.id === selectItem.id}
                 key={item.id}
               >
-                <div>{item.name}</div>
+                <div style={{ height: 48, border: '1px solid #dfdfdf', textAlign: 'center' }}>
+                  <div>{addIcon(item.icon)}</div>
+                  {item.name}
+                </div>
               </TagItem>
             ))}
           </TagList>
           <ComponentSelect>
             {selectItem.children.map((item) => (
               <ComponentItem key={item.id} onClick={componentConfirm(item)}>
-                <img src={item.imgUrl} />
-                <div>{item.name}</div>
+                <Card
+                  hoverable
+                  style={{ width: 240 }}
+                  cover={<img alt={item.name} src={item.imgUrl} />}
+                >
+                  <Meta title={item.name} />
+                </Card>
               </ComponentItem>
             ))}
           </ComponentSelect>

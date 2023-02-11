@@ -1,5 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import { message } from 'antd';
 
 const Container = styled.div`
   display: flex;
@@ -22,36 +23,39 @@ const Container = styled.div`
     flex: none;
     margin-left: 10px;
   }
-`
+`;
 
 function CustomUpload({ onChange, imgName }) {
-
   const upload = (e) => {
-    const file = e.target.files[0]
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
 
     reader.addEventListener('load', () => {
       if (file.size < 2048000) {
         onChange({
           url: reader.result,
-          imgName: file.name
-        })
+          imgName: file.name,
+        });
       } else {
-        message.info('图片大小不得超过2M')
+        message.info('圖片大小不能超過2MB');
       }
-    })
-  }
+    });
+  };
 
   return (
     <Container>
-      <label htmlFor="files">
-        上传图片
-      </label>
+      <label htmlFor='files'>上傳圖片</label>
       <span>{imgName || ''}</span>
-      <input id="files" style={{ visibility: 'hidden' }} type="file" onChange={upload} accept=".jpg,.png,.jpeg,.gif" />
+      <input
+        id='files'
+        style={{ visibility: 'hidden' }}
+        type='file'
+        onChange={upload}
+        accept='.jpg,.png,.jpeg,.gif'
+      />
     </Container>
-  )
+  );
 }
 
-export default CustomUpload
+export default CustomUpload;

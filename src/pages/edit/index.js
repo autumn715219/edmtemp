@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { ConfigProvider } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { setPageList, clearPageList } from '@/actions/pageList';
@@ -44,7 +45,6 @@ function Edit() {
     const initPage = {
       title: '首页',
       id: uuidv4(),
-      path: 'index',
       componentList: [],
     };
     const stepId = uuidv4();
@@ -57,7 +57,8 @@ function Edit() {
   useEffect(() => {
     const appId = queryString.parse(window.location.search).appId;
     const appDetail = getAppDetail(appId);
-
+    //const aa = queryString.parse(window.location.search);
+    //console.log('appId=', aa);
     try {
       if (!appDetail.layout) {
         return _initPage();
@@ -71,7 +72,7 @@ function Edit() {
         dispatch(setPageList(layout));
         dispatch(setCurrentSelectPage(layout[0].id));
 
-        // 有记录时初始化undo栈
+        // 初始步驟記錄
         const stepId = uuidv4();
         dispatch(setCurrentStep(stepId));
         dispatch(initUndoStack([stepId], layout, layout[0].id, null));
@@ -90,20 +91,28 @@ function Edit() {
     };
   }, [dispatch, getAppDetail, _initPage]);
 
-  console.log(state);
-
+  // console.log(state);
+  const theme = {
+    token: {
+      colorPrimary: '#ff7c5a',
+    },
+  };
   return (
     <>
-      <Page>
-        <div>
-          <CustomHeader />
-          <MainContent>
-            {panelShow && <ComponentPanel />}
-            <SandBox />
-            <EditPanel />
-          </MainContent>
-        </div>
-      </Page>
+      <ConfigProvider theme={theme}>
+        <Page>
+          <div>
+            <CustomHeader />
+            <MainContent>
+              {/* {panelShow && <ComponentPanel />} */}
+              <ComponentPanel />
+              <SandBox />
+              <EditPanel />
+              {/* {panelShow && <EditPanel />} */}
+            </MainContent>
+          </div>
+        </Page>
+      </ConfigProvider>
     </>
   );
 }

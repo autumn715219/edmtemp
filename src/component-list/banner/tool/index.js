@@ -71,7 +71,7 @@ function Tool() {
 
       setBannerList(newList);
     } else {
-      message.info('上一添加项尚未完成');
+      message.info('上一個輪播設定尚未完成');
     }
   };
 
@@ -80,7 +80,7 @@ function Tool() {
       const list = bannerList.filter((item) => item.id !== id);
       setBannerList(list);
     } else {
-      message.info('已是最后一项，无法删除');
+      message.info('已是最後一個輪播，無法刪除');
     }
   };
 
@@ -91,7 +91,7 @@ function Tool() {
       }
     });
     if (!/^[0-9]+([.]{1}[0-9]+){0,1}$/.test(height)) {
-      return message.info('高度必须为数字');
+      return message.info('必須為數字');
     }
     const newKey = uuidv4();
     dispatch(
@@ -125,7 +125,7 @@ function Tool() {
           ))}
         <Form.Item>
           <Button type='default' onClick={addBanner}>
-            新增修改项
+            新增輪播
           </Button>
         </Form.Item>
         <Form.Item label='高度(px)'>
@@ -134,10 +134,10 @@ function Tool() {
         <PositionMove component={currentSelectComponent} componentList={componentList} />
         <Form.Item style={{ marginTop: '40px' }}>
           <Button type='primary' onClick={submit}>
-            确认
+            儲存
           </Button>
-          <Button type='danger' style={{ marginLeft: '20px' }} onClick={deleteCurrentComponent}>
-            删除
+          <Button style={{ marginLeft: '10px' }} onClick={deleteCurrentComponent}>
+            刪除
           </Button>
         </Form.Item>
       </Form>

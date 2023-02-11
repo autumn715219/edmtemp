@@ -10,7 +10,7 @@ function useDeleteCurrentComponent() {
 
   const remove = () => {
     Modal.confirm({
-      content: '确认要删除当前组件？',
+      content: '確認要刪除區塊？',
       onOk() {
         dispatch(deleteComponent(currentSelectComponent));
       },

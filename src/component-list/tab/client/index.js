@@ -1,14 +1,14 @@
-import React, { useState, useMemo } from 'react'
-import styled from 'styled-components'
+import React, { useState, useMemo } from 'react';
+import styled from 'styled-components';
 
 const Container = styled.div`
   padding: 15px 0;
-`
+`;
 const TabBar = styled.div`
   position: relative;
   display: flex;
   border-bottom: 1px solid #eee;
-`
+`;
 const TabBarItem = styled.div`
   position: relative;
   height: 40px;
@@ -16,7 +16,7 @@ const TabBarItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 const TabBarActive = styled.div`
   position: absolute;
   left: 50%;
@@ -24,11 +24,9 @@ const TabBarActive = styled.div`
   bottom: 0;
   width: 40px;
   height: 2px;
-  background-color: #1890ff;
-`
-const TabContent = styled.div`
-
-`
+  background-color: #ff7c5a;
+`;
+const TabContent = styled.div``;
 const ListItem = styled.div`
   display: flex;
   box-sizing: border-box;
@@ -39,12 +37,13 @@ const ListItem = styled.div`
     margin-left: 0;
     padding-left: 15px;
   }
-`
+`;
 const ListImage = styled.img`
   flex: none;
   width: 70px;
   height: 70px;
-`
+  border-radius: 5px;
+`;
 const ListContent = styled.div`
   flex: 1;
   overflow: hidden;
@@ -66,51 +65,45 @@ const ListContent = styled.div`
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
-`
+`;
 
 function Tab({ onClick, tabList }) {
-
-  const [activeIndex, setActiveIndex] = useState(
-    tabList && tabList[0] ? tabList[0].id : null
-  )
+  const [activeIndex, setActiveIndex] = useState(tabList && tabList[0] ? tabList[0].id : null);
 
   const activeContent = useMemo(() => {
-    return tabList.filter(item => item.id === activeIndex)[0].tabContent
-  }, [tabList, activeIndex])
+    return tabList.filter((item) => item.id === activeIndex)[0].tabContent;
+  }, [tabList, activeIndex]);
 
   const changeTab = (id) => () => {
-    setActiveIndex(id)
-  }
+    setActiveIndex(id);
+  };
 
   return (
     <Container onClick={onClick}>
       <TabBar>
-        {
-          tabList && tabList.map(item =>
+        {tabList &&
+          tabList.map((item) => (
             <TabBarItem onClick={changeTab(item.id)} key={item.id}>
               {item.tabName}
               {item.id === activeIndex && <TabBarActive />}
             </TabBarItem>
-          )
-        }
+          ))}
       </TabBar>
       <TabContent>
-        {
-          activeContent.map(item => {
-            return (
-              <ListItem key={item.id}>
-                <ListImage src={item.imgUrl} />
-                <ListContent>
-                  <h3>{item.title}</h3>
-                  <div>{item.content}</div>
-                </ListContent>
-              </ListItem>
-            )
-          })
-        }
+        {activeContent.map((item) => {
+          return (
+            <ListItem key={item.id}>
+              <ListImage src={item.imgUrl} />
+              <ListContent>
+                <h3>{item.title}</h3>
+                <div>{item.content}</div>
+              </ListContent>
+            </ListItem>
+          );
+        })}
       </TabContent>
     </Container>
-  )
+  );
 }
 
-export default Tab
+export default Tab;

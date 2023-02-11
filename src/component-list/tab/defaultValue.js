@@ -1,94 +1,94 @@
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid';
 
 const defaultValue = {
   id: 'TAB_COMPONENT_DEFAULT',
-  name: '默认Tab',
-  imgUrl: 'https://storage-1257012839.cos.ap-chengdu.myqcloud.com/tab.png',
+  name: '頁籤',
+  imgUrl: 'https://drive.google.com/uc?id=1RH3cwyZVycE1dgO0Y89-OZvTwTd4LxBV',
   componentType: 'tab',
   defaultProps: {
     tabList: [
       {
         id: uuidv4(),
-        tabName: '标签1',
+        tabName: '頁籤1',
         tabContent: [
           {
             id: uuidv4(),
-            title: '标签1-标题1',
+            title: '頁籤1-標題1',
             content: 'Hello World!',
-            imgUrl: 'https://storage-1257012839.cos.ap-chengdu.myqcloud.com/%E6%B5%8B%E8%AF%954.jpg',
-            redirectUrl: 'https://www.baidu.com'
+            imgUrl: 'https://i3.momoshop.com.tw/1675676656/goodsimg/0010/407/478/10407478_R.webp',
+            redirectUrl: 'https://www.baidu.com',
           },
           {
             id: uuidv4(),
-            title: '标签1-标题2',
+            title: '頁籤1-標題2',
             content: 'Hello World!',
-            imgUrl: 'https://storage-1257012839.cos.ap-chengdu.myqcloud.com/%E6%B5%8B%E8%AF%954.jpg',
-            redirectUrl: 'https://www.taobao.com'
-          }
-        ]
+            imgUrl: 'https://i3.momoshop.com.tw/1675676656/goodsimg/0010/407/478/10407478_R.webp',
+            redirectUrl: 'https://www.taobao.com',
+          },
+        ],
       },
       {
         id: uuidv4(),
-        tabName: '标签2',
+        tabName: '頁籤2',
         tabContent: [
           {
             id: uuidv4(),
-            title: '标签2-标题1',
+            title: '頁籤2-標題1',
             content: 'Hello World!2',
-            imgUrl: 'https://storage-1257012839.cos.ap-chengdu.myqcloud.com/%E6%B5%8B%E8%AF%954.jpg',
-            redirectUrl: 'https://www.baidu.com'
+            imgUrl: 'https://i3.momoshop.com.tw/1675676656/goodsimg/0010/407/478/10407478_R.webp',
+            redirectUrl: 'https://www.baidu.com',
           },
           {
             id: uuidv4(),
-            title: '标签2-标题2',
+            title: '頁籤2-標題2',
             content: 'Hello World!',
-            imgUrl: 'https://storage-1257012839.cos.ap-chengdu.myqcloud.com/%E6%B5%8B%E8%AF%954.jpg',
-            redirectUrl: 'https://www.baidu.com'
-          }
-        ]
+            imgUrl: 'https://i3.momoshop.com.tw/1675676656/goodsimg/0010/407/478/10407478_R.webp',
+            redirectUrl: 'https://www.baidu.com',
+          },
+        ],
       },
       {
         id: uuidv4(),
-        tabName: '标签3',
+        tabName: '頁籤3',
         tabContent: [
           {
             id: uuidv4(),
-            title: '标签3-标题1',
+            title: '頁籤3-標題1',
             content: 'Hello World!',
-            imgUrl: 'https://storage-1257012839.cos.ap-chengdu.myqcloud.com/%E6%B5%8B%E8%AF%954.jpg',
-            redirectUrl: 'https://www.baidu.com'
+            imgUrl: 'https://i3.momoshop.com.tw/1675676656/goodsimg/0010/407/478/10407478_R.webp',
+            redirectUrl: 'https://www.baidu.com',
           },
           {
             id: uuidv4(),
-            title: '标签3-标题2',
+            title: '頁籤3-標題2',
             content: 'Hello World!',
-            imgUrl: 'https://storage-1257012839.cos.ap-chengdu.myqcloud.com/%E6%B5%8B%E8%AF%954.jpg',
-            redirectUrl: 'https://www.baidu.com'
-          }
-        ]
+            imgUrl: 'https://i3.momoshop.com.tw/1675676656/goodsimg/0010/407/478/10407478_R.webp',
+            redirectUrl: 'https://www.baidu.com',
+          },
+        ],
       },
       {
         id: uuidv4(),
-        tabName: '标签4',
+        tabName: '頁籤4',
         tabContent: [
           {
             id: uuidv4(),
-            title: '标签4-标题1',
+            title: '頁籤4-標題1',
             content: 'Hello World!',
-            imgUrl: 'https://storage-1257012839.cos.ap-chengdu.myqcloud.com/%E6%B5%8B%E8%AF%954.jpg',
-            redirectUrl: 'https://www.baidu.com'
+            imgUrl: 'https://i3.momoshop.com.tw/1675676656/goodsimg/0010/407/478/10407478_R.webp',
+            redirectUrl: 'https://www.baidu.com',
           },
           {
             id: uuidv4(),
-            title: '标签4-标题2',
+            title: '頁籤4-標題2',
             content: 'Hello World!',
-            imgUrl: 'https://storage-1257012839.cos.ap-chengdu.myqcloud.com/%E6%B5%8B%E8%AF%954.jpg',
-            redirectUrl: 'https://www.baidu.com'
-          }
-        ]
-      }
-    ]
-  }
-}
+            imgUrl: 'https://i3.momoshop.com.tw/1675676656/goodsimg/0010/407/478/10407478_R.webp',
+            redirectUrl: 'https://www.baidu.com',
+          },
+        ],
+      },
+    ],
+  },
+};
 
-export default defaultValue
+export default defaultValue;

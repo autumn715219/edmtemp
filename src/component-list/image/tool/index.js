@@ -73,7 +73,7 @@ function Tool() {
   return (
     <ToolContainer>
       <Form>
-        <Form.Item label='图片高度'>
+        <Form.Item label='圖片高度'>
           <Input
             style={{ width: '300px' }}
             placeholder='高度'
@@ -83,15 +83,15 @@ function Tool() {
         </Form.Item>
         <RadioGroup>
           <Radio.Group value={imgType} onChange={(e) => setImgType(e.target.value)}>
-            <Radio value={1}>输入图片链接</Radio>
-            <Radio value={2}>上传本地图片</Radio>
+            <Radio value={1}>圖片連結</Radio>
+            <Radio value={2}>上傳圖片</Radio>
           </Radio.Group>
         </RadioGroup>
         {imgType === 1 && (
-          <Form.Item label='图片URL'>
+          <Form.Item label='圖片url：'>
             <Input
               style={{ width: '300px' }}
-              placeholder='标题'
+              placeholder='標題'
               onChange={(e) => setImgUrl(e.target.value)}
               value={imgUrl}
             />
@@ -99,7 +99,7 @@ function Tool() {
         )}
         {imgType === 2 && (
           <>
-            <Tips>大小不得超过2M</Tips>
+            <Tips>大小不得超過2MB</Tips>
             <CustomUpload onChange={upload} imgName={imgName} />
           </>
         )}
@@ -107,16 +107,16 @@ function Tool() {
         <PositionMove component={currentSelectComponent} componentList={componentList} />
         <Form.Item style={{ marginTop: '40px' }}>
           <Button type='primary' onClick={submit}>
-            确认
+            儲存
           </Button>
-          <Button type='danger' style={{ marginLeft: '20px' }} onClick={deleteCurrentComponent}>
-            删除
+          <Button style={{ marginLeft: '10px' }} onClick={deleteCurrentComponent}>
+            刪除
           </Button>
         </Form.Item>
       </Form>
 
       <Modal
-        visible={previewVisible}
+        open={previewVisible}
         onOk={() => setPreviewVisible(false)}
         onCancel={() => setPreviewVisible(false)}
       >

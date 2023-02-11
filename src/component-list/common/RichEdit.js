@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-// import BraftEditor from 'braft-editor'
+import { Editor } from '@tinymce/tinymce-react';
 import styled from 'styled-components';
-// import 'braft-editor/dist/index.css'
 
 const Container = styled.div``;
 
@@ -20,8 +19,8 @@ function RichEdit({ html, onChange, height = '200px' }) {
   ]);
 
   useEffect(() => {
-    //setEditorState(BraftEditor.createEditorState(html))
-    setEditorState(html);
+    setEditorState(Editor.createEditorState(html));
+    //setEditorState(html);
   }, [html]);
 
   const changeValue = (editorState) => {
@@ -31,7 +30,7 @@ function RichEdit({ html, onChange, height = '200px' }) {
 
   return (
     <Container>
-      <BraftEditor
+      <Editor
         value={editorState}
         onChange={changeValue}
         controls={controls.current}

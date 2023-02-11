@@ -32,7 +32,7 @@ function EditPanel() {
       {currentSelectComponent ? (
         getPanelMap(currentSelectComponent.type)()
       ) : (
-        <Info>暂未选择组件</Info>
+        <Info>尚未選擇組件</Info>
       )}
     </Panel>
   );

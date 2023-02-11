@@ -17,7 +17,7 @@ function usePageModal() {
     const hasPath = pageList.map((item) => item.path).includes(newPageInfo.path);
 
     if (!newPageInfo.title) {
-      return message.warn('标题不得为空');
+      return message.warn('請輸入標題');
     }
     if (hasPath) {
       return message.warn('已创建页面中已有相同的path');

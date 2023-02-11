@@ -1,11 +1,5 @@
-import ArticleClient from './client'
-import ArticleServer from './server'
-import ToolPanel from './tool'
-import defaultValue from './defautValue'
+import ArticleClient from './client';
+import ToolPanel from './tool';
+import defaultValue from './defautValue';
 
-export {
-  ArticleClient,
-  ArticleServer,
-  ToolPanel,
-  defaultValue
-}
+export { ArticleClient, ToolPanel, defaultValue };

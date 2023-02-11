@@ -1,28 +1,34 @@
-import React from 'react'
-import { Modal, Form, Input } from 'antd'
+import React from 'react';
+import { Modal, Form, Input } from 'antd';
 
-function NewPageModal({ newPageModalShow, newPageInfo, hideNewPageModal, newPageModalSubmit, inputNewPageInfo }) {
-
+function NewPageModal({
+  newPageModalShow,
+  newPageInfo,
+  hideNewPageModal,
+  newPageModalSubmit,
+  inputNewPageInfo,
+}) {
   return (
-    <Modal
-      visible={newPageModalShow}
-      onCancel={hideNewPageModal}
-      onOk={newPageModalSubmit}
-    >
+    <Modal open={newPageModalShow} onCancel={hideNewPageModal} onOk={newPageModalSubmit}>
       <Form style={{ marginTop: '30px' }}>
-        <Form.Item label="页面标题">
+        <Form.Item label='EDM名稱'>
           <Input
             style={{ width: '400px' }}
             value={newPageInfo.title}
             onChange={inputNewPageInfo('title')}
           />
         </Form.Item>
-        <Form.Item label="页面路径" extra={<div>页面路径只能包含字母、数字、下划线</div>}>
-          <Input style={{ width: '400px' }} value={newPageInfo.path} onChange={inputNewPageInfo('path')} suffix=".html" />
-        </Form.Item>
+        {/* <Form.Item label='EDM路徑' extra={<div>頁面路徑只能包含字母、数字、下底線</div>}>
+          <Input
+            style={{ width: '400px' }}
+            value={newPageInfo.path}
+            onChange={inputNewPageInfo('path')}
+            suffix='.html'
+          />
+        </Form.Item> */}
       </Form>
     </Modal>
-  )
+  );
 }
 
-export default NewPageModal
+export default NewPageModal;
