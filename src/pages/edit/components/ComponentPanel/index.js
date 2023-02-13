@@ -26,13 +26,13 @@ const PanelContainer = styled.div`
 `;
 const HeaderTitle = styled.div`
   box-sizing: border-box;
-  padding: 5px 20px;
+  padding: 15px 20px;
   margin-bottom: 10px;
   display: flex;
   z-index: 10;
   border-top: 1px solid #ececec;
   border-bottom: 1px solid #ececec;
-
+  background-color: #f6f6f6;
   align-items: center;
   justify-content: space-between;
   & > h3 {

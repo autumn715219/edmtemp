@@ -107,7 +107,7 @@ function Tool() {
         <PositionMove component={currentSelectComponent} componentList={componentList} />
         <Form.Item style={{ marginTop: '40px' }}>
           <Button type='primary' onClick={submit}>
-            儲存
+            修改
           </Button>
           <Button style={{ marginLeft: '10px' }} onClick={deleteCurrentComponent}>
             刪除

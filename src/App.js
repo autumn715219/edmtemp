@@ -14,22 +14,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 
-// const Loading = styled.div`
-//   width: 100%;
-//   height: 100vh;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// `;
-
-// function WaitingComponent(Component) {
-//   return (
-//     <Suspense fallback={<Loading>加载中...</Loading>}>
-//       <Component />
-//     </Suspense>
-//   );
-// }
-
 export default function App() {
   return (
     <>

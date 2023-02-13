@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  padding: 15px 0;
+  padding: 0;
 `;
 const TabBar = styled.div`
   position: relative;

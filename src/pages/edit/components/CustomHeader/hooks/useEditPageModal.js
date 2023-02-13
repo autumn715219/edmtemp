@@ -29,13 +29,13 @@ function useEditPageModal() {
       .includes(editPageInfo.path);
 
     if (!editPageInfo.title) {
-      return message.warn('标题不得为空');
+      return message.warn('請輸入標題');
     }
     if (hasPath) {
-      return message.warn('已创建页面中已有相同的path');
+      return message.warn('創建頁面中已有相同路徑');
     }
     if (!/^\w+$/.test(editPageInfo.path)) {
-      return message.warn('页面路径只能包含数字、字母、下划线');
+      return message.warn('頁面路徑只能包含數字、字母、下底線');
     }
 
     setEditPageModalShow(false);

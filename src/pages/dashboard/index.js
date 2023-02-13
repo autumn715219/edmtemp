@@ -80,7 +80,7 @@ function Dashboard() {
   };
 
   const toEdit = (id) => () => {
-    navigate(`/edit?pageId=${id}`);
+    navigate(`/edit?appId=${id}`);
   };
 
   const ButtonContainer = styled.div`

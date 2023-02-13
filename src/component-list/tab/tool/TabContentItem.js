@@ -111,11 +111,13 @@ function TabContentItem({ removeTabContent, contentItem, tabItem, changeTabConte
         </>
       )}
       <PreviewImage imgUrl={imgUrl} />
-      <TabItemTitle>跳轉連結</TabItemTitle>
-      <Input
-        value={contentItem.redirectUrl}
-        onChange={changeTabContent('redirectUrl', tabItem.id, contentItem.id)}
-      />
+      <Form.Item>
+        跳轉連結
+        <Input
+          value={contentItem.redirectUrl}
+          onChange={changeTabContent('redirectUrl', tabItem.id, contentItem.id)}
+        />
+      </Form.Item>
       <RemoveItemText onClick={removeItem}>刪除此項</RemoveItemText>
     </div>
   );

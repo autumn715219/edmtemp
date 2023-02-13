@@ -87,7 +87,7 @@ function Tool() {
   const submit = () => {
     bannerList.forEach((item) => {
       if (!item.to && !item.imgUrl) {
-        return message.info('请检查是否有未输入的图片或跳转链接');
+        return message.info('請检查是否有未输入的图片或跳转链接');
       }
     });
     if (!/^[0-9]+([.]{1}[0-9]+){0,1}$/.test(height)) {
@@ -134,7 +134,7 @@ function Tool() {
         <PositionMove component={currentSelectComponent} componentList={componentList} />
         <Form.Item style={{ marginTop: '40px' }}>
           <Button type='primary' onClick={submit}>
-            儲存
+            修改
           </Button>
           <Button style={{ marginLeft: '10px' }} onClick={deleteCurrentComponent}>
             刪除

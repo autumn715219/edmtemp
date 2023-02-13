@@ -44,7 +44,7 @@ function Tool() {
       <Form>
         <Form.Item label='高度'>
           <Input
-            placeholder='请输入高度'
+            placeholder='請输入高度'
             onChange={(e) => setHeight(e.target.value)}
             value={height}
           />
@@ -65,7 +65,7 @@ function Tool() {
         <PositionMove component={currentSelectComponent} componentList={componentList} />
         <Form.Item style={{ marginTop: '40px' }}>
           <Button type='primary' onClick={submit}>
-            儲存
+            修改
           </Button>
           <Button style={{ marginLeft: '10px' }} onClick={deleteCurrentComponent}>
             刪除

@@ -43,7 +43,7 @@ function Edit() {
 
   const _initPage = useCallback(() => {
     const initPage = {
-      title: '首页',
+      title: 'EDMTEMP',
       id: uuidv4(),
       componentList: [],
     };

@@ -56,7 +56,7 @@ function TabItem({ removeTab, removeTabContent, changeTabTitle, changeTabContent
         <EditPanel>
           <EditText onClick={toggle}>{active ? '隱藏' : '編輯'}</EditText>
           <EditText onClick={remove(item.id)} style={{ marginLeft: '15px' }}>
-            删除
+            刪除
           </EditText>
         </EditPanel>
       </ListItem>

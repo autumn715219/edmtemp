@@ -59,7 +59,7 @@ function BannerListItem({ index, bannerItem, changeImgUrl, changePath, deleteBan
         </BannerItemUrl>
         <BannerItemEdit>
           <div onClick={() => setShowDetail(!showDetail)}>{showDetail ? '隱藏' : '編輯'}</div>
-          <div onClick={() => deleteBannerItem(bannerItem.id)}>删除</div>
+          <div onClick={() => deleteBannerItem(bannerItem.id)}>刪除</div>
         </BannerItemEdit>
       </BannerItemHeader>
       {showDetail && (
