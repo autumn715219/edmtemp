@@ -9,7 +9,13 @@ function EditPageModal({
   inputEditPageInfo,
 }) {
   return (
-    <Modal open={editPageModalShow} onCancel={hideEditPageModal} onOk={editPageModalSubmit}>
+    <Modal
+      open={editPageModalShow}
+      onCancel={hideEditPageModal}
+      onOk={editPageModalSubmit}
+      okText='確認'
+      cancelText='取消'
+    >
       <Form style={{ marginTop: '30px' }}>
         <Form.Item label='EDM名稱'>
           <Input

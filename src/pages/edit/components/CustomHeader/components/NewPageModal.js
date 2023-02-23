@@ -9,7 +9,13 @@ function NewPageModal({
   inputNewPageInfo,
 }) {
   return (
-    <Modal open={newPageModalShow} onCancel={hideNewPageModal} onOk={newPageModalSubmit}>
+    <Modal
+      open={newPageModalShow}
+      onCancel={hideNewPageModal}
+      onOk={newPageModalSubmit}
+      okText='確認'
+      cancelText='取消'
+    >
       <Form style={{ marginTop: '30px' }}>
         <Form.Item label='EDM名稱'>
           <Input

@@ -1,4 +1,9 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import queryString from 'query-string';
+import { v4 as uuidv4 } from 'uuid';
+
+import styled from 'styled-components';
 import { ConfigProvider, Layout, Button, Select, Modal, Form, Input, message } from 'antd';
 import {
   EyeOutlined,
@@ -7,26 +12,17 @@ import {
   StepBackwardOutlined,
   StepForwardOutlined,
 } from '@ant-design/icons';
-import styled from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
+import { useSelector, useDispatch } from 'react-redux';
 import { useGetCurrentSelectPage, useAppList } from '@/hooks';
-import { deletePage } from '@/actions/pageList';
 import { setCurrentSelectPage } from '@/actions/currentSelectPage';
-import queryString from 'query-string';
-import useEditPageModal from './hooks/useEditPageModal';
-// import usePublishModal from './hooks/usePublishModal';
-import { v4 as uuidv4 } from 'uuid';
-import NewPageModal from './components/NewPageModal';
-import EditPageModal from './components/EditPageModal';
-import PublishModal from './components/PublishModal';
 import { cleanEmpty } from '@/actions/componentList';
 import { undo, redo } from '@/actions/undoStack';
 
-const { Option } = Select;
-const { Header } = Layout;
+// import usePublishModal from './hooks/usePublishModal';
+// import PublishModal from './components/PublishModal';
 
+const { Header } = Layout;
 const HeaderContainer = styled.div`
   display: flex;
   flex: 1;
@@ -60,41 +56,25 @@ function CustomHeader() {
   const pageList = useSelector((state) => state.pageListReducer);
   const undoStack = useSelector((state) => state.undoStackReducer);
   const selectedPage = useGetCurrentSelectPage();
-
-  const {
-    editPageModalSubmit,
-    editPageInfo,
-    inputEditPageInfo,
-    editPageModalShow,
-    hideEditPageModal,
-    showEditPageModal,
-  } = useEditPageModal();
-
   const { saveAppLayout } = useAppList();
-
   const goBack = () => {
     navigate(`/dashboard`);
   };
-
   const publish = () => {
     const packageId = uuidv4();
     message.info('發佈功能製作中！');
   };
-
   const save = () => {
     const appId = queryString.parse(window.location.search).appId;
     saveAppLayout(appId, JSON.stringify(pageList));
     message.info('儲存成功！');
   };
-
   const preview = () => {
     message.info('預覽功能製作中！');
   };
-
   const undoClick = () => {
     dispatch(undo(undoStack));
   };
-
   const redoClick = () => {
     dispatch(redo(undoStack));
   };
@@ -136,29 +116,6 @@ function CustomHeader() {
           </ButtonGroup>
         </div>
       </HeaderContainer>
-
-      {/* <NewPageModal
-        newPageModalShow={newPageModalShow}
-        hideNewPageModal={hideNewPageModal}
-        newPageModalSubmit={newPageModalSubmit}
-        inputNewPageInfo={inputNewPageInfo}
-        newPageInfo={newPageInfo}
-      /> */}
-
-      <EditPageModal
-        editPageModalShow={editPageModalShow}
-        hideEditPageModal={hideEditPageModal}
-        editPageModalSubmit={editPageModalSubmit}
-        editPageInfo={editPageInfo}
-        inputEditPageInfo={inputEditPageInfo}
-      />
-
-      {/* <PublishModal
-        publishModalShow={publishModalShow}
-        hidePublishModal={() => hidePublishModal(ws.current)}
-        publishStatus={publishStatus}
-        resultFile={resultFile}
-      /> */}
     </Header>
   );
 }

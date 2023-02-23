@@ -1,39 +1,45 @@
 // import React, { useState, useEffect } from 'react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
-import LandingHeader from '@/components/header';
+import CustomHeader from '@/components/customHeader';
 import BN from '@/asset/BN.png';
 
 const WRAPPER = styled.main`
   margin: 0 auto 200px;
   width: 100%;
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     margin: 0 auto 100px;
   }
 `;
 
-const DivHeight = styled.div`
+const DivLandingBn = styled.div`
   width: 100%;
-  height: 500px;
-  margin: 0px auto 100vh;
+  margin: 0px auto;
+  padding: 50px 50px;
   background-image: linear-gradient(120deg, #fe7c5a, #fcd100);
-  background-color: '#ccc';
+
   @media (max-width: 768px) {
-    border-top: 2px solid #ccc;
+    padding: 2vw 2vw 2vw 0;
   }
+`;
+const ImgLandingBn = styled.img`
+  display: block;
+  margin: 0 auto;
+  vertical-align: middle !important;
+  width: 100%;
+  max-width: 1100px;
 `;
 export default function Landing() {
   return (
     <>
       <WRAPPER>
-        <LandingHeader />
-        <DivHeight>
-          <div className='landingBN'>
-            <a href='/dashboard'>
-              <img src={BN} alt='BN' />
-            </a>
-          </div>
-        </DivHeight>
+        <CustomHeader />
+        <DivLandingBn>
+          <Link to='/'>
+            <ImgLandingBn src={BN} alt='BN' />
+          </Link>
+        </DivLandingBn>
       </WRAPPER>
     </>
   );

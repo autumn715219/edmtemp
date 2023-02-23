@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { ConfigProvider, List, Button, Modal } from 'antd';
+import { List, Button, Modal } from 'antd';
+import CustomHeader from '@/components/customHeader';
+
 import CreateAppModal from './components/CreateAppModal';
 import EditAppModal from './components/EditAppModal';
 import { useAppList } from '@/hooks';
-import LandingHeader from '@/components/header';
 
 const Page = styled.div`
   width: 100%;
@@ -42,6 +43,11 @@ const ListTitle = styled(ListWords)`
 `;
 const ListContent = styled(ListWords)`
   color: #666;
+`;
+const ButtonContainer = styled.div`
+  .ant-btn-primary {
+    background-color: #ff7c5a;
+  }
 `;
 
 function Dashboard() {
@@ -83,68 +89,56 @@ function Dashboard() {
     navigate(`/edit?appId=${id}`);
   };
 
-  const ButtonContainer = styled.div`
-    .ant-btn-primary {
-      background-color: #ff7c5a;
-    }
-  `;
-  const theme = {
-    token: {
-      colorPrimary: '#ff7c5a',
-    },
-  };
   return (
     <>
-      <LandingHeader />
-      <ConfigProvider theme={theme}>
-        <Page>
-          <MainContent>
-            <Header>
-              <ButtonContainer>
-                <Button type='primary' onClick={() => setCreateModalVisible(true)}>
-                  新增EDM
-                </Button>
-                <Button style={{ marginLeft: '20px' }} onClick={clear}>
-                  全部刪除
-                </Button>
-              </ButtonContainer>
-            </Header>
-            <List
-              dataSource={appList}
-              renderItem={(item) => (
-                <List.Item style={{ borderBottom: '1px solid #ccc' }}>
-                  <List.Item.Meta
-                    title={<ListTitle onClick={toEdit(item.id)}>{item.name}</ListTitle>}
-                    description={<ListContent>{item.desc}</ListContent>}
-                  />
-                  <EditList>
-                    <ButtonContainer>
-                      <Button onClick={toEdit(item.id)}>編輯頁面</Button>
-                      <Button style={{ marginLeft: '10px' }} onClick={editItem(item)}>
-                        修改名稱
-                      </Button>
-                      <Button style={{ marginLeft: '10px' }} onClick={removeItem(item)}>
-                        刪除
-                      </Button>
-                    </ButtonContainer>
-                  </EditList>
-                </List.Item>
-              )}
-            />
-          </MainContent>
-          <CreateAppModal
-            visible={createModalVisible}
-            addApp={addApp}
-            closeModal={() => setCreateModalVisible(false)}
+      <CustomHeader />
+      <Page>
+        <MainContent>
+          <Header>
+            <ButtonContainer>
+              <Button type='primary' onClick={() => setCreateModalVisible(true)}>
+                新增EDM
+              </Button>
+              <Button style={{ marginLeft: '20px' }} onClick={clear}>
+                全部刪除
+              </Button>
+            </ButtonContainer>
+          </Header>
+          <List
+            dataSource={appList}
+            renderItem={(item) => (
+              <List.Item style={{ borderBottom: '1px solid #ccc' }}>
+                <List.Item.Meta
+                  title={<ListTitle onClick={toEdit(item.id)}>{item.name}</ListTitle>}
+                  description={<ListContent>{item.desc}</ListContent>}
+                />
+                <EditList>
+                  <ButtonContainer>
+                    <Button onClick={toEdit(item.id)}>編輯頁面</Button>
+                    <Button style={{ marginLeft: '10px' }} onClick={editItem(item)}>
+                      修改名稱
+                    </Button>
+                    <Button style={{ marginLeft: '10px' }} onClick={removeItem(item)}>
+                      刪除
+                    </Button>
+                  </ButtonContainer>
+                </EditList>
+              </List.Item>
+            )}
           />
-          <EditAppModal
-            visible={editModalVisible}
-            editAppInfo={editAppInfo}
-            selectItem={selectItem}
-            closeModal={() => setEditModalVisible(false)}
-          />
-        </Page>
-      </ConfigProvider>
+        </MainContent>
+        <CreateAppModal
+          visible={createModalVisible}
+          addApp={addApp}
+          closeModal={() => setCreateModalVisible(false)}
+        />
+        <EditAppModal
+          visible={editModalVisible}
+          editAppInfo={editAppInfo}
+          selectItem={selectItem}
+          closeModal={() => setEditModalVisible(false)}
+        />
+      </Page>
     </>
   );
 }

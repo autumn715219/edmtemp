@@ -1,16 +1,19 @@
-import {combineReducers} from 'redux'
-import pageListReducer from './pageListReducer'
-import currentSelectComponentReducer from './currentSelectComponentReducer'
-import currentSelectPageReducer from './currentSelectPageReducer'
-import componentPanelReducer from './componentPanelReducer'
-import undoStackReducer from './undoStackReducer'
-import currentUndoStep from './currentUndoStep'
+import { combineReducers } from 'redux';
+import pageListReducer from './pageListReducer';
+import currentSelectComponentReducer from './currentSelectComponentReducer';
+import currentSelectPageReducer from './currentSelectPageReducer';
+import componentPanelReducer from './componentPanelReducer';
+import undoStackReducer from './undoStackReducer';
+import currentUndoStep from './currentUndoStep';
+import userAuth from './userAuth';
 
-export default combineReducers({
+const reducers = combineReducers({
+  userAuth,
   pageListReducer,
   currentSelectComponentReducer,
   currentSelectPageReducer,
   componentPanelReducer,
   undoStackReducer,
-  currentUndoStep
-})
+  currentUndoStep,
+});
+export default reducers;

@@ -38,7 +38,6 @@ function EditAppModal({ visible, editAppInfo, closeModal, selectItem }) {
     if (!formData.name) {
       return message.info('請填寫EDM名稱');
     }
-
     const result = editAppInfo({
       ...formData,
       id: selectItem.id,
@@ -53,7 +52,7 @@ function EditAppModal({ visible, editAppInfo, closeModal, selectItem }) {
   };
 
   return (
-    <Modal open={visible} onCancel={onCancel} onOk={submit}>
+    <Modal open={visible} onCancel={onCancel} onOk={submit} okText='確認' cancelText='取消'>
       <Content>
         <Form labelCol={{ span: 4 }}>
           <Form.Item label='EDM名稱' required>

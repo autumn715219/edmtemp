@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { ConfigProvider } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { setPageList, clearPageList } from '@/actions/pageList';
@@ -41,6 +40,7 @@ function Edit() {
   const dispatch = useDispatch();
   const panelShow = useSelector((state) => state.componentPanelReducer);
 
+  // 初始狀態設定
   const _initPage = useCallback(() => {
     const initPage = {
       title: 'EDMTEMP',
@@ -57,15 +57,14 @@ function Edit() {
   useEffect(() => {
     const appId = queryString.parse(window.location.search).appId;
     const appDetail = getAppDetail(appId);
-    //const aa = queryString.parse(window.location.search);
-    //console.log('appId=', aa);
+
     try {
       if (!appDetail.layout) {
         return _initPage();
       }
 
       const layout = JSON.parse(appDetail.layout);
-
+      console.log(appId);
       if (layout.length === 0) {
         _initPage();
       } else {
@@ -91,28 +90,20 @@ function Edit() {
     };
   }, [dispatch, getAppDetail, _initPage]);
 
-  // console.log(state);
-  const theme = {
-    token: {
-      colorPrimary: '#ff7c5a',
-    },
-  };
   return (
     <>
-      <ConfigProvider theme={theme}>
-        <Page>
-          <div>
-            <CustomHeader />
-            <MainContent>
-              {/* {panelShow && <ComponentPanel />} */}
-              <ComponentPanel />
-              <SandBox />
-              <EditPanel />
-              {/* {panelShow && <EditPanel />} */}
-            </MainContent>
-          </div>
-        </Page>
-      </ConfigProvider>
+      <Page>
+        <div>
+          <CustomHeader />
+          <MainContent>
+            {/* {panelShow && <ComponentPanel />} */}
+            <ComponentPanel />
+            <SandBox />
+            <EditPanel />
+            {/* {panelShow && <EditPanel />} */}
+          </MainContent>
+        </div>
+      </Page>
     </>
   );
 }

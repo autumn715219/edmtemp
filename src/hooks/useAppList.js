@@ -8,6 +8,8 @@ const _getList = () => {
   try {
     if (appStorage) {
       const appList = JSON.parse(appStorage);
+      // console.log(appList);
+
       return appList;
     } else {
       return [];
@@ -28,6 +30,7 @@ function useAppList() {
   const _setAppList = (list) => {
     setAppList(list || []);
     if (list) {
+      console.log(list);
       localStorage.setItem('appList', JSON.stringify(list));
     } else {
       localStorage.removeItem('appList');
