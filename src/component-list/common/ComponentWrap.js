@@ -11,6 +11,14 @@ const Content = styled.div`
   position: relative;
   cursor: pointer;
 `;
+const SelectContainer = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ff7c5a;
+`;
 
 const SelectLabel = styled.div`
   position: absolute;
@@ -18,7 +26,7 @@ const SelectLabel = styled.div`
   right: 0;
   width: 30px;
   height: 30px;
-  background-color: #1890ff;
+  background-color: #ff7c5a;
   opacity: 0.8;
   border-radius: 4px;
   z-index: 1;
@@ -76,9 +84,11 @@ function Wrap({ component, addComponentOver, addComponentUnder, children, style 
         ) : null}
       </Content>
       {currentSelectComponent && currentSelectComponent.key === component.key && (
-        <SelectLabel>
-          <CheckOutlined />
-        </SelectLabel>
+        <SelectContainer>
+          <SelectLabel>
+            <CheckOutlined />
+          </SelectLabel>
+        </SelectContainer>
       )}
     </Container>
   );

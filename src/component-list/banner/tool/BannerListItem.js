@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import PathSelect from '@/component-list/common/PathSelect';
 import { Input, Radio } from 'antd';
 
 const BannerItem = styled.div`

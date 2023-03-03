@@ -3,7 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 const defaultValue = {
   id: 'TAB_COMPONENT_DEFAULT',
   name: '頁籤',
-  imgUrl: 'https://drive.google.com/uc?id=1RH3cwyZVycE1dgO0Y89-OZvTwTd4LxBV',
+  imgUrl:
+    'https://firebasestorage.googleapis.com/v0/b/edmtemp-24eae.appspot.com/o/asset%2Fimg-tab.jpg?alt=media&token=55e675f9-b7d2-44bc-8dff-b6424486a52c',
   componentType: 'tab',
   defaultProps: {
     tabList: [

@@ -12,6 +12,8 @@ import ComponentPanel from './components/ComponentPanel';
 import SandBox from './components/SandBox';
 import EditPanel from './components/EditPanel';
 import { useAppList } from '@/hooks';
+import useUserAuth from '@/hooks/useUserAuth';
+
 import queryString from 'query-string';
 
 const Page = styled.div`
@@ -36,6 +38,7 @@ const MainContent = styled.div`
 
 function Edit() {
   const { getAppDetail } = useAppList();
+  const { currentUser } = useUserAuth();
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const panelShow = useSelector((state) => state.componentPanelReducer);
@@ -43,7 +46,6 @@ function Edit() {
   // 初始狀態設定
   const _initPage = useCallback(() => {
     const initPage = {
-      title: 'EDMTEMP',
       id: uuidv4(),
       componentList: [],
     };
@@ -57,6 +59,7 @@ function Edit() {
   useEffect(() => {
     const appId = queryString.parse(window.location.search).appId;
     const appDetail = getAppDetail(appId);
+    console.log('appId', appId);
 
     try {
       if (!appDetail.layout) {
@@ -64,7 +67,7 @@ function Edit() {
       }
 
       const layout = JSON.parse(appDetail.layout);
-      console.log(appId);
+      //console.log(appId);
       if (layout.length === 0) {
         _initPage();
       } else {
@@ -100,7 +103,6 @@ function Edit() {
             <ComponentPanel />
             <SandBox />
             <EditPanel />
-            {/* {panelShow && <EditPanel />} */}
           </MainContent>
         </div>
       </Page>

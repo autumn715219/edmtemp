@@ -85,8 +85,8 @@ function Dashboard() {
     setSelectItem(item);
   };
 
-  const toEdit = (id) => () => {
-    navigate(`/edit?appId=${id}`);
+  const toEdit = (appId) => () => {
+    navigate(`/edit?appId=${appId}`);
   };
 
   return (
@@ -109,12 +109,12 @@ function Dashboard() {
             renderItem={(item) => (
               <List.Item style={{ borderBottom: '1px solid #ccc' }}>
                 <List.Item.Meta
-                  title={<ListTitle onClick={toEdit(item.id)}>{item.name}</ListTitle>}
+                  title={<ListTitle onClick={toEdit(item.appId)}>{item.name}</ListTitle>}
                   description={<ListContent>{item.desc}</ListContent>}
                 />
                 <EditList>
                   <ButtonContainer>
-                    <Button onClick={toEdit(item.id)}>編輯頁面</Button>
+                    <Button onClick={toEdit(item.appId)}>編輯頁面</Button>
                     <Button style={{ marginLeft: '10px' }} onClick={editItem(item)}>
                       修改名稱
                     </Button>

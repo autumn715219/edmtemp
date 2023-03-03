@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Input, Form, Radio, Modal } from 'antd';
 import CustomUpload from '@/component-list/common/CustomUpload';
-import PathSelect from '@/component-list/common/PathSelect';
 import styled from 'styled-components';
 
 const EditText = styled.div`
@@ -37,18 +36,6 @@ function TabContentItem({ removeTabContent, contentItem, tabItem, changeTabConte
   const [imgType, setImgType] = useState(1);
   const [imgUrl, setImgUrl] = useState(contentItem.imgUrl);
   const [imgName, setImgName] = useState('');
-
-  const selectPath = (e) => {
-    changeTabContent(
-      'redirectUrl',
-      tabItem.id,
-      contentItem.id,
-    )({
-      target: {
-        value: `./${e.path}.html`,
-      },
-    });
-  };
 
   const upload = (e) => {
     changeTabContent(
@@ -106,7 +93,7 @@ function TabContentItem({ removeTabContent, contentItem, tabItem, changeTabConte
       )}
       {imgType === 2 && (
         <>
-          <Tips>大小不得超過2MB</Tips>
+          <Tips>大小不得超過1MB</Tips>
           <CustomUpload onChange={upload} imgName={imgName} />
         </>
       )}

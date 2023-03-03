@@ -2,14 +2,15 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { message } from 'antd';
 
+import { db, auth } from '@/utils/firebase';
+import { doc, updateDoc, onSnapshot } from 'firebase/firestore';
+
 const _getList = () => {
   const appStorage = localStorage.getItem('appList');
-
   try {
     if (appStorage) {
       const appList = JSON.parse(appStorage);
       // console.log(appList);
-
       return appList;
     } else {
       return [];
@@ -30,7 +31,6 @@ function useAppList() {
   const _setAppList = (list) => {
     setAppList(list || []);
     if (list) {
-      console.log(list);
       localStorage.setItem('appList', JSON.stringify(list));
     } else {
       localStorage.removeItem('appList');
@@ -44,7 +44,7 @@ function useAppList() {
 
   const getAppDetail = useCallback((appId) => {
     const list = _getList();
-    const app = list.filter((item) => item.id === appId)[0] || null;
+    const app = list.filter((item) => item.appId === appId)[0] || null;
 
     return app;
   }, []);
@@ -52,44 +52,38 @@ function useAppList() {
   const addApp = useCallback((app) => {
     if (!_checkName(app.name)) {
       const list = _getList();
-      const id = uuidv4();
+      const appId = uuidv4();
       list.push({
         ...app,
-        id,
+        appId,
       });
       _setAppList(list);
-
-      return id;
+      return appId;
     }
     message.warn('EDM名稱重複，請重新輸入');
     return false;
   }, []);
 
   const editAppInfo = useCallback((app) => {
-    if (!_checkName(app.name)) {
-      const list = _getList();
-      const newList = list.map((item) => {
-        if (app.id === item.id) {
-          return {
-            ...item,
-            name: app.name,
-            desc: app.desc,
-          };
-        }
-        return item;
-      });
-      _setAppList(newList);
-
-      return true;
-    }
-    message.warn('EDM名稱重複，請重新輸入');
-    return false;
+    const list = _getList();
+    const newList = list.map((item) => {
+      if (app.appId === item.id) {
+        return {
+          ...item,
+          name: app.name,
+          desc: app.desc,
+        };
+      }
+      return item;
+    });
+    _setAppList(newList);
+    return true;
   }, []);
 
   const saveAppLayout = useCallback((appId, layout) => {
     const list = _getList();
     const newList = list.map((item) => {
-      if (appId === item.id) {
+      if (appId === item.appId) {
         return {
           ...item,
           layout,
@@ -98,6 +92,7 @@ function useAppList() {
       return item;
     });
     _setAppList(newList);
+    updateDoc(doc(db, 'users', auth.currentUser.uid), { appList: newList });
   }, []);
 
   const removeApp = useCallback((appId) => {

@@ -6,7 +6,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentSelectComponent } from '@/actions/currentSelectComponent';
 import { addComponent, addComponentFromWrap } from '@/actions/componentList';
 import { useGetComponentList, useGetCurrentSelectComponent } from '@/hooks';
-import { ConfigProvider, Result, Button } from 'antd';
+import useUserAuth from '@/hooks/useUserAuth';
+
+import { Result, Button } from 'antd';
 
 const Viewer = styled.div`
   position: relative;
@@ -61,43 +63,38 @@ function SandBox() {
   const addUnder = (e) => {
     dispatch(addComponentFromWrap(e.key, 'under'));
   };
-  const theme = {
-    token: {
-      colorPrimary: '#ff7c5a',
-    },
-  };
+
   return (
-    <ConfigProvider theme={theme}>
-      <Viewer>
-        {componentList && componentList.length > 0 ? (
-          componentList.map((item) => {
-            if (item.type === 'empty') {
-              return <Empty key={item.key}>請在此加入區塊</Empty>;
-            }
-            return (
-              <Wrap
-                key={item.key}
-                component={item}
-                addComponentOver={addOver}
-                addComponentUnder={addUnder}
-              >
-                {componentClientMap[item.type](item.props, () => select(item.key))}
-              </Wrap>
-            );
-          })
-        ) : (
-          <Result
-            status='info'
-            subTitle='請加入區塊'
-            extra={
-              <Button type='primary' onClick={add}>
-                加入區塊
-              </Button>
-            }
-          />
-        )}
-      </Viewer>
-    </ConfigProvider>
+    <Viewer>
+      {console.log(componentList)}
+      {componentList && componentList.length > 0 ? (
+        componentList.map((item) => {
+          if (item.type === 'empty') {
+            return <Empty key={item.key}>請在此加入區塊</Empty>;
+          }
+          return (
+            <Wrap
+              key={item.key}
+              component={item}
+              addComponentOver={addOver}
+              addComponentUnder={addUnder}
+            >
+              {componentClientMap[item.type](item.props, () => select(item.key))}
+            </Wrap>
+          );
+        })
+      ) : (
+        <Result
+          status='info'
+          subTitle='請加入區塊'
+          extra={
+            <Button type='primary' onClick={add}>
+              加入區塊
+            </Button>
+          }
+        />
+      )}
+    </Viewer>
   );
 }
 

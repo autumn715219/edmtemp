@@ -77,7 +77,7 @@ function LoginFormModal({ visible, closeModal }) {
   const [password, setPassword] = useState('');
   const [isRegistering, setIsRegistering] = useState(true);
   const [registerInformation, setRegisterInformation] = useState({
-    name: '',
+    username: '',
     email: '',
     password: '',
   });
@@ -107,6 +107,9 @@ function LoginFormModal({ visible, closeModal }) {
 
   const userSignUp = () => {
     dispatch(signUpUser(registerInformation));
+    // dispatch(
+    //   signup(registerInformation.username, registerInformation.email, registerInformation.password),
+    // );
     _closeModal();
   };
 
@@ -162,15 +165,15 @@ function LoginFormModal({ visible, closeModal }) {
             <>
               <Form labelCol={{ span: 5 }}>
                 <FormTitle>REGISTER</FormTitle>
-                <Form.Item label='Name' style={{ marginBottom: '12px' }} required>
+                <Form.Item label='Username' style={{ marginBottom: '12px' }} required>
                   <Input
                     prefix={<UserOutlined className='site-form-item-icon' />}
                     type='text'
-                    value={registerInformation.userName}
+                    value={registerInformation.username}
                     onChange={(e) =>
                       setRegisterInformation({
                         ...registerInformation,
-                        name: e.target.value,
+                        username: e.target.value,
                       })
                     }
                     placeholder='UserName'

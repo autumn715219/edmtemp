@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ToolPanel as BannerToolPanel } from '@/component-list/banner';
-import { ToolPanel as ParagraphPanel } from '@/component-list/paragraph';
 import { ToolPanel as TextPanel } from '@/component-list/text';
 import { ToolPanel as ImagePanel } from '@/component-list/image';
 import { getPanelMap } from '@/component-list/componentList';

@@ -12,6 +12,7 @@ import {
   useDeleteCurrentComponent,
 } from '@/hooks';
 import { useDispatch } from 'react-redux';
+
 import styled from 'styled-components';
 
 const RadioGroup = styled.div`
@@ -65,7 +66,8 @@ function Tool() {
     dispatch(setCurrentSelectComponent(newKey));
   };
 
-  const upload = (e) => {
+  const upload = async (e) => {
+    //console.log(e);
     setImgUrl(e.url);
     setImgName(e.imgName);
   };
@@ -99,7 +101,7 @@ function Tool() {
         )}
         {imgType === 2 && (
           <>
-            <Tips>大小不得超過2MB</Tips>
+            <Tips>大小不得超過1MB</Tips>
             <CustomUpload onChange={upload} imgName={imgName} />
           </>
         )}

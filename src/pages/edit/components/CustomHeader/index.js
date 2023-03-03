@@ -18,10 +18,7 @@ import { useGetCurrentSelectPage, useAppList } from '@/hooks';
 import { setCurrentSelectPage } from '@/actions/currentSelectPage';
 import { cleanEmpty } from '@/actions/componentList';
 import { undo, redo } from '@/actions/undoStack';
-
-// import usePublishModal from './hooks/usePublishModal';
-// import PublishModal from './components/PublishModal';
-
+import useUserAuth from '@/hooks/useUserAuth';
 const { Header } = Layout;
 const HeaderContainer = styled.div`
   display: flex;
@@ -57,21 +54,24 @@ function CustomHeader() {
   const undoStack = useSelector((state) => state.undoStackReducer);
   const selectedPage = useGetCurrentSelectPage();
   const { saveAppLayout } = useAppList();
+  const { currentUser } = useUserAuth();
+
   const goBack = () => {
-    navigate(`/dashboard`);
+    navigate('/dashboard');
   };
   const publish = () => {
-    const packageId = uuidv4();
+    // const path = window.location.href.split('admin')[0];
+    const appId = queryString.parse(window.location.search).appId;
+    // console.log('currentUser', currentUser.uid);
+    window.open('/' + currentUser.uid + '/' + appId);
     message.info('發佈功能製作中！');
   };
   const save = () => {
     const appId = queryString.parse(window.location.search).appId;
-    saveAppLayout(appId, JSON.stringify(pageList));
-    message.info('儲存成功！');
+    saveAppLayout(appId, JSON.stringify(pageList)); //saveAppLayout(appID,Layout)
+    message.success('儲存成功！');
   };
-  const preview = () => {
-    message.info('預覽功能製作中！');
-  };
+
   const undoClick = () => {
     dispatch(undo(undoStack));
   };
@@ -105,10 +105,6 @@ function CustomHeader() {
               onClick={redoClick}
             >
               重做
-            </Button>
-
-            <Button icon={<EyeOutlined />} style={{ marginRight: '10px' }} onClick={preview}>
-              預覽
             </Button>
             <Button type='primary' icon={<SendOutlined />} onClick={publish}>
               發佈
