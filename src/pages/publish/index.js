@@ -11,10 +11,20 @@ import { TitleServer as Title } from '@/component-list/title';
 import useGetLayout from './hooks/useGetLayout';
 import Loading from '@/components/loading';
 import FooterCustom from '@/components/customFooter';
-const WRAPPER = styled.main`
+const WRAPPER = styled.div`
+  margin: 0 auto;
+  width: 100%;
+  background-color: #404040;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+const Container = styled.main`
   margin: 0 auto;
   width: 100%;
   max-width: 375px;
+  background-color: #fff;
+
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -33,10 +43,12 @@ function Publish() {
   };
   return (
     <WRAPPER>
-      {componentList.map((item) => {
-        return componentMap[item.type](item);
-      })}
-      <FooterCustom />
+      <Container>
+        {componentList.map((item) => {
+          return componentMap[item.type](item);
+        })}
+        <FooterCustom />
+      </Container>
     </WRAPPER>
   );
 }

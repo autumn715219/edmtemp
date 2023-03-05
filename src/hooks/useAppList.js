@@ -50,24 +50,20 @@ function useAppList() {
   }, []);
 
   const addApp = useCallback((app) => {
-    if (!_checkName(app.name)) {
-      const list = _getList();
-      const appId = uuidv4();
-      list.push({
-        ...app,
-        appId,
-      });
-      _setAppList(list);
-      return appId;
-    }
-    message.warn('EDM名稱重複，請重新輸入');
-    return false;
+    const list = _getList();
+    const appId = uuidv4();
+    list.push({
+      ...app,
+      appId,
+    });
+    _setAppList(list);
+    return appId;
   }, []);
 
   const editAppInfo = useCallback((app) => {
     const list = _getList();
     const newList = list.map((item) => {
-      if (app.appId === item.id) {
+      if (app.appId === item.appId) {
         return {
           ...item,
           name: app.name,
@@ -98,7 +94,7 @@ function useAppList() {
   const removeApp = useCallback((appId) => {
     const list = _getList();
     const newList = list.filter((item) => {
-      return item.id !== appId;
+      return item.appId !== appId;
     });
     _setAppList(newList);
   }, []);

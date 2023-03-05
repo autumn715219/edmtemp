@@ -40,7 +40,7 @@ function EditAppModal({ visible, editAppInfo, closeModal, selectItem }) {
     }
     const result = editAppInfo({
       ...formData,
-      id: selectItem.id,
+      appId: selectItem.appId,
     });
     if (result) {
       _closeModal();

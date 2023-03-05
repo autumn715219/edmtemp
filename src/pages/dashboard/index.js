@@ -61,11 +61,12 @@ function Dashboard() {
   });
 
   const removeItem = (item) => () => {
+    console.log(item);
     Modal.confirm({
       title: '警告',
       content: `是否永久刪除EDM「${item.name}」`,
       onOk: () => {
-        removeApp(item.id);
+        removeApp(item.appId);
       },
     });
   };
