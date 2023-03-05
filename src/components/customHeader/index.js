@@ -29,6 +29,7 @@ const DivLogo = styled.a`
   background-position: left center;
   cursor: pointer;
   @media (max-width: 768px) {
+    width: calc(100% - 180px);
   }
 `;
 const NavRight = styled.nav`

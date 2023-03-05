@@ -136,11 +136,11 @@ function ComponentPanel() {
       <PanelContainer>
         <HeaderTitle>
           <h3>加入區塊</h3>
-          {/* <span>
+          <span>
             <CloseOutlined onClick={closePanel} />
-          </span> */}
+          </span>
         </HeaderTitle>
-        {/* <Button onClick={addBanner}>添加Banner</Button> */}
+        {/* <Button onClick={addBanner}> + Banner</Button> */}
         <List>
           <TagList style={{ borderRight: '1px solid #dfdfdf', textAlign: 'center' }}>
             {componentList.map((item) => (

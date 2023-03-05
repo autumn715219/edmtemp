@@ -11,22 +11,28 @@ import { useAppList } from '@/hooks';
 const Page = styled.div`
   width: 100%;
   min-height: 100vh;
-  background-color: #fff;
+  background-image: linear-gradient(120deg, #fe7c5a, #fcd100);
   overflow: hidden;
+  font-size: 16px;
 `;
 const MainContent = styled.div`
   width: 1000px;
   margin: 40px auto;
   box-sizing: border-box;
-  padding: 0 20px;
+  padding: 20px 20px 40px 40px;
   background-color: #fff;
+  border-radius: 8px;
+  @media (max-width: 768px) {
+    width: 96%;
+    padding: 10px 10px 20px;
+  }
 `;
 const Header = styled.div`
   padding: 30px 0 20px 0;
 `;
 const EditList = styled.div`
   margin-left: 20px;
-  color: #ff7c5a;
+  color: #111;
   display: flex;
   & > div {
     flex: none;
@@ -42,12 +48,7 @@ const ListTitle = styled(ListWords)`
   cursor: pointer;
 `;
 const ListContent = styled(ListWords)`
-  color: #666;
-`;
-const ButtonContainer = styled.div`
-  .ant-btn-primary {
-    background-color: #ff7c5a;
-  }
+  color: #111;
 `;
 
 function Dashboard() {
@@ -96,33 +97,33 @@ function Dashboard() {
       <Page>
         <MainContent>
           <Header>
-            <ButtonContainer>
-              <Button type='primary' onClick={() => setCreateModalVisible(true)}>
-                新增EDM
-              </Button>
-              <Button style={{ marginLeft: '20px' }} onClick={clear}>
-                全部刪除
-              </Button>
-            </ButtonContainer>
+            <Button type='primary' onClick={() => setCreateModalVisible(true)}>
+              新增EDM
+            </Button>
+            <Button style={{ marginLeft: '20px' }} onClick={clear}>
+              全部刪除
+            </Button>
           </Header>
           <List
             dataSource={appList}
             renderItem={(item) => (
               <List.Item style={{ borderBottom: '1px solid #ccc' }}>
                 <List.Item.Meta
-                  title={<ListTitle onClick={toEdit(item.appId)}>{item.name}</ListTitle>}
-                  description={<ListContent>{item.desc}</ListContent>}
+                  title={
+                    <ListTitle style={{ fontSize: '16px' }} onClick={toEdit(item.appId)}>
+                      {item.name}
+                    </ListTitle>
+                  }
+                  description={<ListContent style={{ fontSize: '15px' }}>{item.desc}</ListContent>}
                 />
                 <EditList>
-                  <ButtonContainer>
-                    <Button onClick={toEdit(item.appId)}>編輯頁面</Button>
-                    <Button style={{ marginLeft: '10px' }} onClick={editItem(item)}>
-                      修改名稱
-                    </Button>
-                    <Button style={{ marginLeft: '10px' }} onClick={removeItem(item)}>
-                      刪除
-                    </Button>
-                  </ButtonContainer>
+                  <Button onClick={toEdit(item.appId)}>編輯頁面</Button>
+                  <Button style={{ marginLeft: '10px' }} onClick={editItem(item)}>
+                    修改名稱
+                  </Button>
+                  <Button style={{ marginLeft: '10px' }} onClick={removeItem(item)}>
+                    刪除
+                  </Button>
                 </EditList>
               </List.Item>
             )}

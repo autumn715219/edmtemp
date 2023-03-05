@@ -27,9 +27,13 @@ function PositionMove({ component, componentList }) {
 
   return showMoveUp || showMoveDown ? (
     <Form.Item label='位置調整'>
-      {showMoveUp && <Button onClick={moveUp}>往上移</Button>}
+      {showMoveUp && (
+        <Button onClick={moveUp} style={{ margin: '0 5px' }}>
+          往上移
+        </Button>
+      )}
       {showMoveDown && (
-        <Button onClick={moveDown} style={{ marginLeft: '20px' }}>
+        <Button onClick={moveDown} style={{ margin: '0 5px' }}>
           往下移
         </Button>
       )}

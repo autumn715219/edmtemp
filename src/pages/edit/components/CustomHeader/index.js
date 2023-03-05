@@ -19,6 +19,8 @@ import { setCurrentSelectPage } from '@/actions/currentSelectPage';
 import { cleanEmpty } from '@/actions/componentList';
 import { undo, redo } from '@/actions/undoStack';
 import useUserAuth from '@/hooks/useUserAuth';
+import Logo from '@/asset/logo.svg';
+
 const { Header } = Layout;
 const HeaderContainer = styled.div`
   display: flex;
@@ -32,7 +34,7 @@ const HeaderContainer = styled.div`
 const ButtonGroup = styled.div`
   margin-left: ${(props) => props.marginLeft || '10px'};
 `;
-const PageSelected = styled.div`
+const LeftGroup = styled.div`
   display: flex;
 `;
 const FormItem = styled.div``;
@@ -46,7 +48,23 @@ const selectStyle = {
   width: '200px',
   marginRight: '20px',
 };
-
+const DivLogo = styled.a`
+  position: relative;
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  margin: 0;
+  height: 36px;
+  width: 80px;
+  background-image: url(${Logo});
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: left center;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    width: calc(100% - 180px);
+  }
+`;
 function CustomHeader() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -59,13 +77,12 @@ function CustomHeader() {
   const goBack = () => {
     navigate('/dashboard');
   };
+
   const publish = () => {
-    // const path = window.location.href.split('admin')[0];
     const appId = queryString.parse(window.location.search).appId;
-    // console.log('currentUser', currentUser.uid);
     window.open('/' + currentUser.uid + '/' + appId);
-    message.info('發佈功能製作中！');
   };
+
   const save = () => {
     const appId = queryString.parse(window.location.search).appId;
     saveAppLayout(appId, JSON.stringify(pageList)); //saveAppLayout(appID,Layout)
@@ -75,6 +92,7 @@ function CustomHeader() {
   const undoClick = () => {
     dispatch(undo(undoStack));
   };
+
   const redoClick = () => {
     dispatch(redo(undoStack));
   };
@@ -82,11 +100,12 @@ function CustomHeader() {
   return (
     <Header style={headerStyle}>
       <HeaderContainer style={{ padding: '10px 20px' }}>
-        <PageSelected>
+        <LeftGroup>
+          <DivLogo href='/' alt='logo' />
           <Button style={{ marginRight: '10px' }} onClick={goBack}>
             查看全部頁面
           </Button>
-        </PageSelected>
+        </LeftGroup>
         <div>
           <ButtonGroup>
             <Button icon={<SaveOutlined />} style={{ marginRight: '10px' }} onClick={save}>

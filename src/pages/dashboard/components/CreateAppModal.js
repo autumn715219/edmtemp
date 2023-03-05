@@ -43,10 +43,9 @@ function CreateAppModal({ visible, closeModal, addApp }) {
     });
     if (appId) {
       _closeModal();
-
       setTimeout(() => {
         navigate(`/edit?appId=${appId}`);
-      }, 1000);
+      }, 500);
     }
   };
 

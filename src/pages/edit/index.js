@@ -13,7 +13,6 @@ import SandBox from './components/SandBox';
 import EditPanel from './components/EditPanel';
 import { useAppList } from '@/hooks';
 import useUserAuth from '@/hooks/useUserAuth';
-
 import queryString from 'query-string';
 
 const Page = styled.div`
@@ -67,7 +66,6 @@ function Edit() {
       }
 
       const layout = JSON.parse(appDetail.layout);
-      //console.log(appId);
       if (layout.length === 0) {
         _initPage();
       } else {
@@ -100,7 +98,7 @@ function Edit() {
           <CustomHeader />
           <MainContent>
             {panelShow && <ComponentPanel />}
-            <ComponentPanel />
+            {/* <ComponentPanel /> */}
             <SandBox />
             <EditPanel />
           </MainContent>

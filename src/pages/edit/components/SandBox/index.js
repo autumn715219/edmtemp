@@ -9,7 +9,7 @@ import { useGetComponentList, useGetCurrentSelectComponent } from '@/hooks';
 import useUserAuth from '@/hooks/useUserAuth';
 
 import { Result, Button } from 'antd';
-
+import { SmileOutlined } from '@ant-design/icons';
 const Viewer = styled.div`
   position: relative;
   margin: 40px auto;
@@ -86,6 +86,7 @@ function SandBox() {
       ) : (
         <Result
           status='info'
+          icon={<SmileOutlined />}
           subTitle='請加入區塊'
           extra={
             <Button type='primary' onClick={add}>

@@ -8,18 +8,18 @@ import Dashboard from './pages/dashboard';
 import Edit from './pages/edit';
 import Landing from './pages/landing';
 import Publish from './pages/publish';
+import LoginFormModal from '@/components/customHeader/components/LoginFormModal.js';
 
 import { ConfigProvider } from 'antd';
 import './styles/global.scss';
 
+const theme = {
+  token: {
+    colorPrimary: '#ff7c5a',
+  },
+};
 export default function App() {
   const { currentUser } = useUserAuth();
-
-  const theme = {
-    token: {
-      colorPrimary: '#ff7c5a',
-    },
-  };
 
   return (
     <>
