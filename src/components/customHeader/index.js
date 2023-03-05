@@ -13,8 +13,75 @@ import { LoginOutlined, LogoutOutlined } from '@ant-design/icons';
 import Logo from '@/asset/logo.svg';
 import HamBurger from '@/asset/hamburger.png';
 import LoginFormModal from './components/LoginFormModal';
-import '@/styles/header.scss';
 
+const Header = styled.header`
+  position: relative;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  transition: 0.1s all ease;
+  &.sticky__header {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    box-shadow: 3px 3px 8px -3px rgb(255, 146, 107);
+    background: #fff;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0 10px 5px 10px;
+    height: 60px;
+    line-height: 60px;
+  }
+`;
+const NavWrapper = styled.div`
+  display: flex;
+  margin: 0 auto;
+  padding: 6px;
+  max-width: 1220px;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+  }
+`;
+const NavList = styled.ul`
+  display: flex;
+  align-items: center;
+  column-gap: 2.7rem;
+  margin-bottom: 0;
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: #fff;
+    z-index: 99999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+const NavItem = styled.li`
+  & > a {
+    color: #111;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    &.nav__active {
+      color: #ff7c5a;
+      font-weight: 700 !important;
+    }
+  }
+  @media (max-width: 768px) {
+  }
+`;
 const DivLogo = styled.a`
   position: relative;
   display: flex;
@@ -39,13 +106,37 @@ const NavRight = styled.nav`
   @media (max-width: 768px) {
   }
 `;
-const NavItem = styled.div`
-  margin: 0 10px;
-  display: inline-block;
-  cursor: pointer;
-  color: #fff;
-  background-color: #000;
+const Navigation = styled.div`
+  text-align: right;
+  padding: 0;
+  line-height: 30px;
   @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.53);
+    z-index: 9999;
+    display: none;
+    line-height: 4;
+    &.active__menu {
+      display: block;
+    }
+  }
+`;
+
+const MobileMenu = styled.div`
+  font-size: 1.3rem;
+  color: #ff7c5a;
+  display: none;
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    display: block;
   }
 `;
 
@@ -81,29 +172,29 @@ export default function CustomHeader() {
 
   return (
     <>
-      <header className='header' ref={headerRef}>
-        <div className='nav__wrapper'>
+      <Header className='header' ref={headerRef}>
+        <NavWrapper className='nav__wrapper'>
           <DivLogo href='/' alt='logo' />
-          <div className='navigation' ref={menuRef} onClick={menuToggle}>
-            <ul className='menu'>
-              <li className='nav__item '>
+          <Navigation className='navigation' ref={menuRef} onClick={menuToggle}>
+            <NavList className='menu'>
+              <NavItem>
                 <NavLink
                   to='/home'
                   className={(navClass) => (navClass.isActive ? 'nav__active' : '')}
                 >
                   首頁
                 </NavLink>
-              </li>
-              <li className='nav__item'>
+              </NavItem>
+              <NavItem>
                 <NavLink
                   to='/dashboard'
                   className={(navClass) => (navClass.isActive ? 'nav__active' : '')}
                 >
                   控制台
                 </NavLink>
-              </li>
-            </ul>
-          </div>
+              </NavItem>
+            </NavList>
+          </Navigation>
 
           {currentUser ? (
             <>
@@ -130,15 +221,15 @@ export default function CustomHeader() {
               </Button>
             </>
           )}
-          <div className='mobile__menu'>
+          <MobileMenu className='mobile__menu'>
             <span onClick={menuToggle}>
               <i>
                 <img src={HamBurger} />
               </i>
             </span>
-          </div>
-        </div>
-      </header>
+          </MobileMenu>
+        </NavWrapper>
+      </Header>
       <LoginFormModal
         visible={loginFormModalVisible}
         closeModal={() => setLoginFormModalVisible(false)}
