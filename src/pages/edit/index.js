@@ -99,7 +99,7 @@ function Edit() {
         <div>
           <CustomHeader />
           <MainContent>
-            {/* {panelShow && <ComponentPanel />} */}
+            {panelShow && <ComponentPanel />}
             <ComponentPanel />
             <SandBox />
             <EditPanel />

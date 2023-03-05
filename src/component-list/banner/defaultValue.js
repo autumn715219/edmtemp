@@ -12,7 +12,7 @@ const defaultValue = {
         id: uuidv4(),
         to: 'https://edmtemp.com/',
         imgUrl:
-          'https://img4.momoshop.com.tw/ecm/img/online/21/345/00/000/bt_1_008_01/bt_1_008_01_e52.jpg?t=1640329817725',
+          'https://firebasestorage.googleapis.com/v0/b/edmtemp-24eae.appspot.com/o/images%2F1677845548419?alt=media&token=a0c44624-77b4-4757-909b-00b653549c96',
       },
       {
         id: uuidv4(),

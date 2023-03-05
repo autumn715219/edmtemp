@@ -12,14 +12,6 @@ function Banner({ bannerList, height }) {
         delay: 3000,
       },
       navigation: false,
-      on: {
-        click: (e) => {
-          const url = e.target.getAttribute('data-redirect');
-          if (e) {
-            window.location.href = url;
-          }
-        },
-      },
     });
   }, []);
 
@@ -35,8 +27,9 @@ function Banner({ bannerList, height }) {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
-              data-redirect={item.to}
-            ></div>
+            >
+              <a href={item.to} style={{ display: 'block', width: '100%', height: '100%' }}></a>
+            </div>
           </div>
         ))}
       </div>

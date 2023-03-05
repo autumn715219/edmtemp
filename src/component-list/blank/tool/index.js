@@ -44,7 +44,7 @@ function Tool() {
       <Form>
         <Form.Item label='高度'>
           <Input
-            placeholder='請输入高度'
+            placeholder='請輸入高度'
             onChange={(e) => setHeight(e.target.value)}
             value={height}
           />
@@ -57,7 +57,7 @@ function Tool() {
             value={backgroundColor}
           />
           <SketchPicker
-            width='300px'
+            width='250px'
             color={backgroundColor}
             onChangeComplete={(e) => setBackgroundColor(e.hex)}
           />

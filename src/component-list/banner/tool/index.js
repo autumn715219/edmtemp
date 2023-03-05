@@ -87,7 +87,7 @@ function Tool() {
   const submit = () => {
     bannerList.forEach((item) => {
       if (!item.to && !item.imgUrl) {
-        return message.info('請检查是否有未输入的图片或跳转链接');
+        return message.info('請检查是否有未輸入的图片或跳转链接');
       }
     });
     if (!/^[0-9]+([.]{1}[0-9]+){0,1}$/.test(height)) {

@@ -5,7 +5,6 @@ import {
   BannerClient,
   ToolPanel as BannerToolPanel,
 } from './banner';
-
 import { defaultValue as textDefaultValue, TextClient, ToolPanel as TextToolPanel } from './text';
 import {
   defaultValue as imageDefaultValue,
@@ -18,6 +17,11 @@ import {
   BlankClient,
   ToolPanel as BlankToolPanel,
 } from './blank';
+import {
+  defaultValue as titleDefaultValue,
+  TitleClient,
+  ToolPanel as TitleToolPanel,
+} from './title';
 
 const componentList = [
   {
@@ -47,8 +51,14 @@ const componentList = [
   {
     id: 'BLANK_COMPONENT',
     name: '分隔',
-    icon: 'MinusOutlined',
+    icon: 'ColumnHeightOutlined',
     children: [{ ...blankDefaultValue }],
+  },
+  {
+    id: 'TITLE_COMPONENT_DEFAULT',
+    name: '標題',
+    icon: 'BoldOutlined',
+    children: [{ ...titleDefaultValue }],
   },
 ];
 
@@ -58,6 +68,7 @@ const componentClientMap = {
   image: (props, select) => <ImageClient onClick={select} {...props} />,
   tab: (props, select) => <TabClient onClick={select} {...props} />,
   blank: (props, select) => <BlankClient onClick={select} {...props} />,
+  title: (props, select) => <TitleClient onClick={select} {...props} />,
 };
 
 const getPanelMap = (name) => {
@@ -67,6 +78,7 @@ const getPanelMap = (name) => {
     image: () => <ImageToolPanel />,
     tab: () => <TabToolPanel />,
     blank: () => <BlankToolPanel />,
+    title: () => <TitleToolPanel />,
   };
   return panelMap[name];
 };

@@ -52,7 +52,6 @@ function Tool() {
 
   const submit = () => {
     const newKey = uuidv4();
-
     dispatch(
       editComponent({
         type: 'image',

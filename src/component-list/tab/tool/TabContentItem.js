@@ -4,7 +4,7 @@ import CustomUpload from '@/component-list/common/CustomUpload';
 import styled from 'styled-components';
 
 const EditText = styled.div`
-  color: #1890ff;
+  color: #ff7c5a;
   cursor: pointer;
 `;
 const Tips = styled.div`

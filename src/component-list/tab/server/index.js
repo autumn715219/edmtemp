@@ -21,7 +21,7 @@ const TabBarActive = styled.div`
   bottom: 0;
   width: 40px;
   height: 2px;
-  background-color: #1890ff;
+  background-color: #ff7c5a;
 `;
 const TabContent = styled.div``;
 const ListItem = styled.div`

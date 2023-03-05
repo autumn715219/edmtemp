@@ -3,6 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import CustomHeader from '@/components/customHeader';
+import FooterCustom from '@/components/customFooter';
+
 import BN from '@/asset/BN.png';
 
 const WRAPPER = styled.main`
@@ -40,6 +42,7 @@ export default function Landing() {
             <ImgLandingBn src={BN} alt='BN' />
           </Link>
         </DivLandingBn>
+        <FooterCustom />
       </WRAPPER>
     </>
   );

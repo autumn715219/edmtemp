@@ -107,10 +107,10 @@ function ComponentPanel() {
   const dispatch = useDispatch();
   const [selectItem, setSelectItem] = useState(componentList[0]);
   const { Meta } = Card;
-  // const closePanel = () => {
-  //   dispatch(setComponentPanelVisible(false));
-  //   dispatch(cleanEmpty());
-  // };
+  const closePanel = () => {
+    dispatch(setComponentPanelVisible(false));
+    dispatch(cleanEmpty());
+  };
   const addIcon = (name) => {
     return React.createElement(Icon[name]);
   };
@@ -130,8 +130,7 @@ function ComponentPanel() {
       }),
     );
   };
-  // console.log(componentList);
-  // console.log(selectItem);
+
   return (
     <Panel>
       <PanelContainer>
