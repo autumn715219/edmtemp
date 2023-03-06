@@ -41,6 +41,12 @@ function Publish() {
     blank: (item) => <Blank key={item.key} {...item.props} />,
     title: (item) => <Title key={item.key} {...item.props} />,
   };
+  const handleTitle = () => {
+    document.title = title;
+  };
+  useEffect(() => {
+    handleTitle();
+  });
   return (
     <WRAPPER>
       {loading && <Loading />}

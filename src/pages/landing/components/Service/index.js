@@ -19,7 +19,7 @@ const FourStepWrap = styled.div`
   width: 100%;
   margin: 0px auto;
   max-width: 1200px;
-  padding: 50px 50px;
+  padding: 50px 50px 0;
   text-align: center;
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -32,16 +32,33 @@ const ServiceWrp = styled.div`
   padding: 20px 10px;
   border-radius: 5px;
   color: #000;
+  text-align: center;
+
   @media (max-width: 768px) {
     padding: 0;
   }
 `;
 const Steptitle = styled.div`
-  width: 100%;
   padding: 20px 0;
   font-size: 20px;
+  line-height: 30px;
   @media (max-width: 768px) {
     padding: 2vw;
+    font-size: 3.5vw;
+  }
+`;
+const StepIndex = styled.div`
+  display: block;
+  width: fit-content;
+  margin: 5px auto;
+  padding: 5px 10px;
+  font-size: 20px;
+  line-height: 30px;
+  background-color: #c8c8c8;
+  color: #fff;
+  border-radius: 10px;
+  @media (max-width: 768px) {
+    padding: 0.5vw 2vw;
     font-size: 3vw;
   }
 `;
@@ -51,11 +68,15 @@ const StepImg = styled.div`
   border-radius: 5px;
   color: #000;
   border: 1px solid #ccc;
+  transform: scale(0.8);
+  transform-origin: top;
   img {
     width: 100%;
   }
   @media (max-width: 768px) {
     padding: 2vw;
+    transform: none;
+    transform-origin: top;
   }
 `;
 const Features = styled.h2`
@@ -115,16 +136,12 @@ export default function Service() {
       <ServiceWrp>
         <Features>使用步驟</Features>
         <FourStepWrap>
-          <Swiper
-            spaceBetween={30}
-            slidesPerView={2.5}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
+          <Swiper spaceBetween={30} slidesPerView={2.5}>
             {serviceData.map((item, index) => (
               <SwiperSlide key={index}>
                 <Steptitle>
-                  Step {index + 1}. {item.title}
+                  <StepIndex>Step {index + 1}.</StepIndex>
+                  {item.title}
                 </Steptitle>
                 <StepImg>
                   <img src={item.img} />

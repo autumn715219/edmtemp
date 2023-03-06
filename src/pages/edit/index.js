@@ -58,7 +58,7 @@ function Edit() {
   useEffect(() => {
     const appId = queryString.parse(window.location.search).appId;
     const appDetail = getAppDetail(appId);
-    console.log('appId', appId);
+    //console.log('appId', appId);
 
     try {
       if (!appDetail.layout) {

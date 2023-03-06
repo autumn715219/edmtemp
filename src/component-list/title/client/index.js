@@ -3,10 +3,12 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   padding: 20px 15px 10px;
+  text-align: center;
 `;
 const TitleDiv = styled.div`
   position: relative;
   width: fit-content;
+  margin: 0 auto;
 `;
 const HeightLightDiv = styled.div`
     z-index: 0;

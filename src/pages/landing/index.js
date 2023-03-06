@@ -18,15 +18,19 @@ const WRAPPER = styled.main`
   }
 `;
 
+const DivLandingBnWrp = styled.div`
+  width: 100%;
+  margin: 0px auto;
+  background-image: linear-gradient(120deg, #fe7c5a, #fcd100);
+`;
 const DivLandingBn = styled.div`
   display: grid;
   grid-template-columns: 1fr 1.4fr;
   justify-content: center;
   align-items: center;
   width: 100%;
+  max-width: 1200px;
   margin: 0px auto;
-  padding: 20px 100px;
-  background-image: linear-gradient(120deg, #fe7c5a, #fcd100);
   @media (max-width: 768px) {
     padding: 5vw;
     grid-template-columns: 1fr;
@@ -151,28 +155,30 @@ export default function Landing() {
     <>
       <WRAPPER>
         <CustomHeader />
-        <DivLandingBn>
-          <LandingContent>
-            <LandingTitle>
-              <i>15分鐘 </i>快速建立
-              <br />
-              屬於你的商品行銷網頁
-            </LandingTitle>
-            <LandingSubtitle>
-              快速存檔<i></i>輕鬆發布
-            </LandingSubtitle>
-            <Button>
-              {currentUser ? (
-                <Link to='/dashboard'>立即開始</Link>
-              ) : (
-                <Link onClick={handleLogin}>立即開始</Link>
-              )}
-            </Button>
-          </LandingContent>
-          <LandingBnImgWrap>
-            <LandingBnImg src={BN} alt='BN' />
-          </LandingBnImgWrap>
-        </DivLandingBn>
+        <DivLandingBnWrp>
+          <DivLandingBn>
+            <LandingContent>
+              <LandingTitle>
+                <i>15分鐘 </i>快速建立
+                <br />
+                屬於你的商品行銷網頁
+              </LandingTitle>
+              <LandingSubtitle>
+                快速存檔<i></i>輕鬆發布
+              </LandingSubtitle>
+              <Button>
+                {currentUser ? (
+                  <Link to='/dashboard'>立即開始</Link>
+                ) : (
+                  <Link onClick={handleLogin}>立即開始</Link>
+                )}
+              </Button>
+            </LandingContent>
+            <LandingBnImgWrap>
+              <LandingBnImg src={BN} alt='BN' />
+            </LandingBnImgWrap>
+          </DivLandingBn>
+        </DivLandingBnWrp>
         <Service />
         <FooterCustom />
       </WRAPPER>
