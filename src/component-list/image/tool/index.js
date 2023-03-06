@@ -74,14 +74,14 @@ function Tool() {
   return (
     <ToolContainer>
       <Form>
-        <Form.Item label='圖片高度'>
+        {/* <Form.Item label='圖片高度'>
           <Input
             style={{ width: '300px' }}
             placeholder='高度'
             onChange={(e) => setHeight(e.target.value)}
             value={height}
           />
-        </Form.Item>
+        </Form.Item> */}
         <RadioGroup>
           <Radio.Group value={imgType} onChange={(e) => setImgType(e.target.value)}>
             <Radio value={1}>圖片連結</Radio>

@@ -6,7 +6,7 @@ const defaultValue = {
   componentType: 'blank',
   defaultProps: {
     height: '15px',
-    backgroundColor: '#ccc',
+    backgroundColor: '#FFF',
   },
 };
 

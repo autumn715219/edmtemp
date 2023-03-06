@@ -2,20 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ImageContent = styled.div`
-  background: url(${(props) => props.imgUrl});
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
   width: 100%;
-  height: ${(props) => props.imgHeight || 160}px;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  img {
+    display: block;
+    width: 100%;
+  }
 `;
 
 const modeMap = {};
 
-function Image({ onClick, height, imgUrl }) {
+function Image({ onClick, imgUrl }) {
   return (
     <div onClick={onClick}>
-      <ImageContent imgUrl={imgUrl} imgHeight={height} />
+      <ImageContent>
+        <img src={imgUrl} />
+      </ImageContent>
     </div>
   );
 }

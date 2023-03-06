@@ -124,7 +124,7 @@ function BannerListItem({ index, bannerItem, changeImgUrl, changePath, deleteBan
             <DetailImage src={bannerItem.imgUrl} />
           </Modal> */}
           <div>
-            <BannerItemTitle>圖片連結</BannerItemTitle>
+            <BannerItemTitle>圖片路徑</BannerItemTitle>
             <div>
               <Input value={bannerItem.imgUrl} onChange={(e) => changeImgUrl(e, bannerItem.id)} />
             </div>

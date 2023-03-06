@@ -12,7 +12,7 @@ import { ExclamationCircleFilled } from '@ant-design/icons';
 const Viewer = styled.div`
   position: relative;
   margin: 40px auto;
-  width: 375px;
+  width: 390px;
   height: 667px;
   background-color: #fff;
   overflow-y: auto;

@@ -12,13 +12,13 @@ const defaultValue = {
         id: uuidv4(),
         to: 'https://edmtemp.com/',
         imgUrl:
-          'https://firebasestorage.googleapis.com/v0/b/edmtemp-24eae.appspot.com/o/images%2F1677845548419?alt=media&token=a0c44624-77b4-4757-909b-00b653549c96',
+          'https://firebasestorage.googleapis.com/v0/b/edmtemp-24eae.appspot.com/o/asset%2Fslide2.jpg?alt=media&token=891f63fe-6fbe-49ca-b19b-3ca77bc6a061',
       },
       {
         id: uuidv4(),
         to: 'https://edmtemp.com/',
         imgUrl:
-          'https://img4.momoshop.com.tw/ecm/img/online/21/345/00/000/bt_1_008_01/bt_1_008_01_e52.jpg?t=1640329817725',
+          'https://firebasestorage.googleapis.com/v0/b/edmtemp-24eae.appspot.com/o/asset%2Fslide.jpg?alt=media&token=ef14321d-3a01-4cbe-84ed-ef043bba247a',
       },
     ],
     height: 200,

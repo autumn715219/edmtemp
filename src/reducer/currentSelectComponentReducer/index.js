@@ -5,7 +5,6 @@ import {
 } from '@/actions/currentSelectComponent';
 
 const initialState = null;
-
 const currentSelectComponentReducer = handleActions(
   {
     [setCurrentSelectComponent]: (state, action) => {
@@ -17,5 +16,4 @@ const currentSelectComponentReducer = handleActions(
   },
   initialState,
 );
-
 export default currentSelectComponentReducer;

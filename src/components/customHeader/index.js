@@ -28,7 +28,7 @@ const Header = styled.header`
     top: 0;
     left: 0;
     z-index: 999;
-    box-shadow: 3px 3px 8px -3px rgb(255, 146, 107);
+    box-shadow: 3px 3px 8px -3px rgba(0, 0, 0, 0.14);
     background: #fff;
   }
   @media (max-width: 768px) {
@@ -56,6 +56,7 @@ const NavList = styled.ul`
   column-gap: 2.7rem;
   margin: 0 40px 0 0;
   @media (max-width: 768px) {
+    margin: 0;
     position: absolute;
     top: 0;
     right: 0;
@@ -80,6 +81,7 @@ const NavItem = styled.li`
     }
   }
   @media (max-width: 768px) {
+    font-size: 1.5rem;
   }
 `;
 const DivLogo = styled.a`

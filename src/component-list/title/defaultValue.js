@@ -7,7 +7,7 @@ const defaultValue = {
   defaultProps: {
     content: '我是主標',
     fontSize: '24px',
-    fontColor: '#111',
+    fontColor: '#ff7c5a',
   },
 };
 

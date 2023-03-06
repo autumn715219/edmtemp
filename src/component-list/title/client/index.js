@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  padding: 20px 15px 5px;
+  padding: 20px 15px 10px;
 `;
 const TitleDiv = styled.div`
   position: relative;
@@ -19,6 +19,7 @@ const HeightLightDiv = styled.div`
     height: 5px;
     background-color: ${(props) => props.backgroundColor || '#ff7c5a'};
     opacity: 0.3;
+
   }
 `;
 function Title({ content, onClick, fontSize, backgroundColor }) {

@@ -2,18 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ImageContent = styled.div`
-  background: url(${(props) => props.imgUrl});
-  background-size: cover;
   width: 100%;
-  height: ${(props) => props.imgHeight || 200}px;
+  img {
+    width: 100%;
+  }
 `;
 
 const modeMap = {};
 
-function Image({ height, imgUrl }) {
+function Image({ imgUrl }) {
   return (
     <div>
-      <ImageContent imgUrl={imgUrl} imgHeight={height} />
+      <ImageContent>
+        <img src={imgUrl} />
+      </ImageContent>
     </div>
   );
 }

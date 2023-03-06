@@ -14,7 +14,7 @@ import FooterCustom from '@/components/customFooter';
 const WRAPPER = styled.div`
   margin: 0 auto;
   width: 100%;
-  background-color: #404040;
+  background-color: #f5f5f7;
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -24,9 +24,9 @@ const Container = styled.main`
   width: 100%;
   max-width: 375px;
   background-color: #fff;
-
   @media (max-width: 768px) {
     width: 100%;
+    max-width: 100%;
   }
 `;
 

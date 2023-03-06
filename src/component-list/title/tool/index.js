@@ -26,7 +26,9 @@ function Tool() {
   const deleteCurrentComponent = useDeleteCurrentComponent();
   const [content, setContent] = useState(currentSelectComponent.props.content);
   const [fontSize, setFontSize] = useState(currentSelectComponent.props.fontSize);
-  const [backgroundColor, setBackgroundColor] = useState(currentSelectComponent.props.fontColor);
+  const [backgroundColor, setBackgroundColor] = useState(
+    currentSelectComponent.props.backgroundColor,
+  );
   const submit = () => {
     const newKey = uuidv4();
     dispatch(
