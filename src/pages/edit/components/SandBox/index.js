@@ -7,9 +7,8 @@ import { setCurrentSelectComponent } from '@/actions/currentSelectComponent';
 import { addComponent, addComponentFromWrap } from '@/actions/componentList';
 import { useGetComponentList, useGetCurrentSelectComponent } from '@/hooks';
 import useUserAuth from '@/hooks/useUserAuth';
-
 import { Result, Button } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+import { ExclamationCircleFilled } from '@ant-design/icons';
 const Viewer = styled.div`
   position: relative;
   margin: 40px auto;
@@ -66,7 +65,6 @@ function SandBox() {
 
   return (
     <Viewer>
-      {console.log(componentList)}
       {componentList && componentList.length > 0 ? (
         componentList.map((item) => {
           if (item.type === 'empty') {
@@ -86,7 +84,7 @@ function SandBox() {
       ) : (
         <Result
           status='info'
-          icon={<SmileOutlined />}
+          icon={<ExclamationCircleFilled />}
           subTitle='請加入區塊'
           extra={
             <Button type='primary' onClick={add}>

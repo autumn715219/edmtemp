@@ -3,7 +3,11 @@ import { useDispatch } from 'react-redux';
 import { deleteComponent } from '../actions/componentList';
 import useGetCurrentSelectComponent from './useGetCurrentSelectComponent';
 import { Modal } from 'antd';
-
+const theme = {
+  token: {
+    colorPrimary: '#ff7c5a',
+  },
+};
 function useDeleteCurrentComponent() {
   const dispatch = useDispatch();
   const currentSelectComponent = useGetCurrentSelectComponent();

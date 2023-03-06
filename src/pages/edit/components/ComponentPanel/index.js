@@ -14,10 +14,10 @@ const Panel = styled.div`
   left: 0;
   top: 0;
   height: 100%;
-  width: 390px;
+  width: 100%;
 `;
 const PanelContainer = styled.div`
-  width: 100%;
+  width: 365px;
   height: 100%;
   position: relative;
   z-index: 999;
@@ -74,7 +74,6 @@ const TagItem = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  margin-bottom: 10px;
   & > div {
     padding: 5px 10px;
     color: ${(props) => (props.isActive ? '#fff' : '#666')};
@@ -145,12 +144,19 @@ function ComponentPanel() {
           <TagList style={{ borderRight: '1px solid #dfdfdf', textAlign: 'center' }}>
             {componentList.map((item) => (
               <TagItem
-                style={{ height: 60 }}
+                style={{ height: 62 }}
                 onClick={() => selectTagList(item)}
                 isActive={item.id === selectItem.id}
                 key={item.id}
               >
-                <div style={{ height: 48, border: '1px solid #dfdfdf', textAlign: 'center' }}>
+                <div
+                  style={{
+                    height: 53,
+                    border: '1px solid #dfdfdf',
+                    textAlign: 'center',
+                    lineHeight: '1.3',
+                  }}
+                >
                   <div>{addIcon(item.icon)}</div>
                   {item.name}
                 </div>
@@ -162,7 +168,7 @@ function ComponentPanel() {
               <ComponentItem key={item.id} onClick={componentConfirm(item)}>
                 <Card
                   hoverable
-                  style={{ width: 240 }}
+                  style={{ width: 220 }}
                   cover={<img alt={item.name} src={item.imgUrl} />}
                 >
                   <Meta title={item.name} />
@@ -172,7 +178,7 @@ function ComponentPanel() {
           </ComponentSelect>
         </List>
       </PanelContainer>
-      {/* <Mask onClick={closePanel} /> */}
+      <Mask onClick={closePanel} />
     </Panel>
   );
 }

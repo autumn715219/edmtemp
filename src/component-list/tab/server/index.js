@@ -13,6 +13,7 @@ const TabBarItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 const TabBarActive = styled.div`
   position: absolute;
@@ -39,11 +40,13 @@ const ListImage = styled.img`
   flex: none;
   width: 70px;
   height: 70px;
+  cursor: pointer;
 `;
 const ListContent = styled.div`
   flex: 1;
   overflow: hidden;
   margin-left: 10px;
+  cursor: pointer;
   & > h3 {
     font-weight: 500;
     color: #111;

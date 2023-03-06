@@ -9,7 +9,7 @@ import { loginUser, logoutUser } from '@/actions/userAuth';
 
 // ANTD UI
 import { Button } from 'antd';
-import { LoginOutlined, LogoutOutlined } from '@ant-design/icons';
+import { LoginOutlined, LogoutOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import Logo from '@/asset/logo.svg';
 import HamBurger from '@/asset/hamburger.png';
 import LoginFormModal from './components/LoginFormModal';
@@ -42,7 +42,7 @@ const NavWrapper = styled.div`
   display: flex;
   margin: 0 auto;
   padding: 6px;
-  max-width: 1220px;
+  max-width: 1100px;
   align-items: center;
   justify-content: space-between;
   @media (max-width: 768px) {
@@ -54,7 +54,7 @@ const NavList = styled.ul`
   display: flex;
   align-items: center;
   column-gap: 2.7rem;
-  margin-bottom: 0;
+  margin: 0 40px 0 0;
   @media (max-width: 768px) {
     position: absolute;
     top: 0;
@@ -85,6 +85,7 @@ const NavItem = styled.li`
 const DivLogo = styled.a`
   position: relative;
   display: flex;
+  flex: 1;
   align-items: center;
   column-gap: 8px;
   margin: 0;
@@ -175,49 +176,46 @@ export default function CustomHeader() {
       <Header className='header' ref={headerRef}>
         <NavWrapper className='nav__wrapper'>
           <DivLogo href='/' alt='logo' />
-          <Navigation className='navigation' ref={menuRef} onClick={menuToggle}>
-            <NavList className='menu'>
-              <NavItem>
-                <NavLink
-                  to='/home'
-                  className={(navClass) => (navClass.isActive ? 'nav__active' : '')}
-                >
-                  首頁
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  to='/dashboard'
-                  className={(navClass) => (navClass.isActive ? 'nav__active' : '')}
-                >
-                  控制台
-                </NavLink>
-              </NavItem>
-            </NavList>
-          </Navigation>
 
           {currentUser ? (
             <>
-              <Button
-                type='primary'
-                icon={<LogoutOutlined />}
-                style={{ marginRight: '10px' }}
-                onClick={handleSignOut}
-              >
+              <Navigation className='navigation' ref={menuRef} onClick={menuToggle}>
+                <NavList className='menu'>
+                  <NavItem>
+                    <NavLink
+                      to='/home'
+                      className={(navClass) => (navClass.isActive ? 'nav__active' : '')}
+                    >
+                      首頁
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      to='/dashboard'
+                      className={(navClass) => (navClass.isActive ? 'nav__active' : '')}
+                    >
+                      控制台
+                    </NavLink>
+                  </NavItem>
+                </NavList>
+              </Navigation>
+              <Button type='primary' icon={<LogoutOutlined />} onClick={handleSignOut}>
                 {' '}
                 登出
               </Button>
             </>
           ) : (
             <>
+              <Button icon={<LoginOutlined />} onClick={handleLogin}>
+                登入／註冊
+              </Button>
               <Button
                 type='primary'
-                icon={<LoginOutlined />}
-                style={{ marginRight: '10px' }}
+                style={{ marginLeft: '10px' }}
+                icon={<ArrowRightOutlined />}
                 onClick={handleLogin}
               >
-                {' '}
-                登入／註冊
+                立即開始
               </Button>
             </>
           )}

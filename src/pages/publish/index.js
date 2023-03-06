@@ -43,6 +43,7 @@ function Publish() {
   };
   return (
     <WRAPPER>
+      {loading && <Loading />}
       <Container>
         {componentList.map((item) => {
           return componentMap[item.type](item);

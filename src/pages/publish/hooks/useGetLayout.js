@@ -5,6 +5,7 @@ import { doc, getDoc, collection, onSnapshot, query, where } from 'firebase/fire
 const useGetLayout = (userId, appId) => {
   const [loading, setLoading] = useState(true);
   const [title, setTitle] = useState('');
+  const [error, setError] = useState('');
   const [componentList, setComponentList] = useState([]);
 
   useEffect(() => {
@@ -19,6 +20,7 @@ const useGetLayout = (userId, appId) => {
         setComponentList(componentListJson[0].componentList);
         setLoading(false);
       } else {
+        setError(true);
         console.log('No such document!');
       }
     };
@@ -26,7 +28,7 @@ const useGetLayout = (userId, appId) => {
     getData();
   }, [userId, appId]);
 
-  return { title, componentList, loading };
+  return { title, componentList, loading, error };
 };
 
 export default useGetLayout;
