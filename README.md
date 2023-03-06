@@ -17,15 +17,15 @@ You can add banner, title, text, space, tab to your pages.
 ### Front-end Skills
 
 - Used `React Hook` and `React-Router` to implement Single Page Application（SPA）, making the user experience better.
-- Used `styled-components` and `Css-Modules` to write HTML element and the same CSS class name in different files without worrying about naming clashes.
-- Used `Redux` to manage the state of PageList.
+- Used `styled-components` to write CSS.
+- Used `Redux` to manage the state of PageList, Component, undoStack, Components, and store to `LocalStorage` .
 - Used `Antd` to Design Dashboard and Edit pages
 
 ### Back-end Skills
 
 - Used `Firebase` back-end service platform to set up the website
   - Add custom domain ( Hoisting ),
-  - Membership system ( Sign-in method:Email & Password, googleAuth ) ,
+  - Membership system ( Sign-in method : Email & Password, googleAuth ) ,
   - Database ( Firestore )
   - Store images ( Storage ).
 
