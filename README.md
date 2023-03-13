@@ -17,7 +17,7 @@ You can add banner, title, text, space, tab to your pages.
 ### Front-end Skills
 
 - Used `React Hook` and `React-Router` to implement Single Page Application（SPA）, making the user experience better.
-- Used `styled-components` and `Css-Modules` to write HTML element and the same CSS class name in different files without worrying about naming clashes.
+- Used `styled-components` to write HTML element and the same CSS class name in different files without worrying about naming clashes.
 - Used `Redux` to manage the state of PageList.
 - Used `Antd` to Design Dashboard and Edit pages
 
