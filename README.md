@@ -8,11 +8,10 @@ You can add banner, title, text, space, tab to your pages.
 ## Live Demo
 
 - Website URL： [EDMTEMP](https://edmtemp.com/)
-  ![demo]()
-
-## Table of Content
-
-## Skills Structure
+- Login  
+  <img src="README_file/recording_login.gif"/>
+- Edit and Publish
+  <img src="README_file/recording_edit.gif"/>
 
 ### Front-end Skills
 
@@ -25,14 +24,6 @@ You can add banner, title, text, space, tab to your pages.
 
 - Used `Firebase` back-end service platform to set up the website
   - Add custom domain ( Hoisting ),
-  - Membership system ( Sign-in method : Email & Password, googleAuth ) ,
+  - Membership system ( Sign-in method : Email & Password, googleAuth),
   - Database ( Firestore )
   - Store images ( Storage ).
-
-### Develop Tools
-
-## Component Planning
-
-## Features
-
-###
